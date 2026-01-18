@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>SulitFinds</title>
+    <link>https://sulitfinds.com</link>
+    <description>Budget-friendly product recommendations in the Philippines.</description>
+    <language>en-PH</language>
+
+    <item>
+      <title><![CDATA[Affordable Work-From-Home Setup Staples for Filipino Buyers]]></title>
+      <link>https://sulitfinds.com/blog/affordable-wfh-setup-staples</link>
+      <guid>https://sulitfinds.com/blog/affordable-wfh-setup-staples</guid>
+      <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A practical checklist of WFH essentials that keep your setup comfortable and productivity-ready.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Budget Smartphones Under ₱10K Filipinos Are Eyeing in 2026]]></title>
+      <link>https://sulitfinds.com/blog/budget-smartphones-under-10k-php</link>
+      <guid>https://sulitfinds.com/blog/budget-smartphones-under-10k-php</guid>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A quick guide to affordable smartphones with strong value-to-price ratios, based on current PH shopping trends.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Top Budget Kitchen Essentials Filipinos Are Buying in 2026]]></title>
+      <link>https://sulitfinds.com/blog/budget-kitchen-essentials-ph</link>
+      <guid>https://sulitfinds.com/blog/budget-kitchen-essentials-ph</guid>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A shortlist of practical kitchen picks that deliver value without overspending, based on current marketplace trends.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Welcome to SulitFinds: Smart Shopping Starts Here]]></title>
+      <link>https://sulitfinds.com/blog/welcome-to-sulitfinds</link>
+      <guid>https://sulitfinds.com/blog/welcome-to-sulitfinds</guid>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Meet SulitFinds and learn how we curate budget-friendly recommendations for Filipino buyers.]]></description>
+    </item>
+  </channel>
+</rss>

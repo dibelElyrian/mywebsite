@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import PostCard from "../components/PostCard";
-import { getAllPosts } from "../lib/posts";
+import { getAllPosts, getCategories } from "../lib/posts";
 
 export default function Home() {
   const posts = getAllPosts();
   const featured = posts.slice(0, 2);
   const latest = posts.slice(0, 6);
+  const categories = getCategories(posts);
 
   return (
     <div className="space-y-12">
@@ -57,6 +58,23 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-2">
           {featured.map((post) => (
             <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+          Shop by category
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <Link
+              key={category}
+              to={`/blog?category=${encodeURIComponent(category)}`}
+              className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-600 dark:border-slate-700 dark:text-slate-200"
+            >
+              {category}
+            </Link>
           ))}
         </div>
       </section>

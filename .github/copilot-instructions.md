@@ -16,6 +16,16 @@ Global rules:
 - Never invent personal product testing claims
 - Assume content may be AI-generated but must be clean and human-readable
 - Always explain architectural decisions briefly when introducing new files
+- After every set of code changes (each PR-sized chunk), scan the entire project for possible sensitive data leaks and fix them before concluding.
+
+Minimum scan requirements:
+- Search repo for common secret patterns: API_KEY, SECRET, TOKEN, PASSWORD, PRIVATE, SUPABASE, STRIPE, AWS, GCP, OPENAI, BEARER, AUTH, CLIENT_SECRET.
+- Ensure no .env or secret files are committed; add/update .gitignore to include .env, .env.*, and common secret filenames.
+- Ensure no hardcoded credentials exist in source code, config files (including netlify.toml), sample markdown posts, or documentation.
+- If any sensitive value is found:
+	- Remove it from the repo.
+	- Replace with environment variables and safe placeholders.
+	- Document what was changed and why.
 
 Tech constraints:
 - Frontend: Vite + React + TypeScript

@@ -9,7 +9,7 @@ const contentDir = path.join(rootDir, "content", "posts");
 const distDir = path.join(rootDir, "dist");
 const baseUrl = "https://sulitfinds.com";
 
-const staticRoutes = ["/", "/blog", "/about", "/disclaimer"];
+const staticRoutes = ["/", "/blog", "/about", "/disclaimer", "/feed.xml"];
 
 const postSlugs = fs
   .readdirSync(contentDir)

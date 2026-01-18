@@ -1,4 +1,5 @@
 import { getReadingTime } from "./readingTime";
+import { normalizeContent } from "./normalizeContent";
 
 export type Post = {
   title: string;
@@ -7,6 +8,7 @@ export type Post = {
   category: string;
   tags: string[];
   description: string;
+  coverImage?: string;
   content: string;
   readingTime: string;
 };
@@ -24,6 +26,7 @@ type Frontmatter = {
   category?: string;
   tags?: string[];
   description?: string;
+  coverImage?: string;
 };
 
 function parseValue(value: string) {
@@ -69,9 +72,12 @@ function normalizeSlug(path: string) {
 export function getAllPosts(): Post[] {
   const posts = Object.entries(modules).map(([path, raw]) => {
     const { data, content } = parseFrontmatter(raw);
+    const normalizedContent = normalizeContent(content);
     const slug = data.slug || normalizeSlug(path);
-    const description = data.description || content.slice(0, 160).trim();
-    const { label } = getReadingTime(content);
+    const normalizedDescription = normalizeContent(
+      data.description || normalizedContent.slice(0, 160).trim()
+    );
+    const { label } = getReadingTime(normalizedContent);
 
     return {
       title: data.title || "Untitled",
@@ -79,8 +85,9 @@ export function getAllPosts(): Post[] {
       date: data.date || "",
       category: data.category || "General",
       tags: Array.isArray(data.tags) ? data.tags : [],
-      description,
-      content,
+      description: normalizedDescription,
+      coverImage: data.coverImage,
+      content: normalizedContent,
       readingTime: label
     } as Post;
   });
@@ -96,4 +103,32 @@ export function getPostBySlug(slug: string) {
 
 export function getCategories(posts: Post[]) {
   return Array.from(new Set(posts.map((post) => post.category))).sort();
+}
+
+export function getTags(posts: Post[]) {
+  return Array.from(new Set(posts.flatMap((post) => post.tags))).sort();
+}
+
+function scoreRelated(post: Post, candidate: Post) {
+  let score = 0;
+  if (post.category === candidate.category) score += 2;
+  const sharedTags = post.tags.filter((tag) => candidate.tags.includes(tag));
+  score += sharedTags.length;
+  return score;
+}
+
+export function getRelatedPosts(current: Post, limit = 3) {
+  const posts = getAllPosts().filter((post) => post.slug !== current.slug);
+  return posts
+    .map((post) => ({
+      post,
+      score: scoreRelated(current, post)
+    }))
+    .filter((item) => item.score > 0)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return new Date(b.post.date).getTime() - new Date(a.post.date).getTime();
+    })
+    .slice(0, limit)
+    .map((item) => item.post);
 }

@@ -39,6 +39,7 @@ export default function SEO({
   useEffect(() => {
     const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
     const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+    const imageUrl = image?.startsWith("http") ? image : `${SITE_URL}${image}`;
 
     document.title = pageTitle;
     setMetaTag("description", description, "name");
@@ -46,11 +47,11 @@ export default function SEO({
     setMetaTag("og:description", description, "property");
     setMetaTag("og:type", type, "property");
     setMetaTag("og:url", canonicalUrl, "property");
-    setMetaTag("og:image", image, "property");
+    setMetaTag("og:image", imageUrl, "property");
     setMetaTag("twitter:card", "summary_large_image", "name");
     setMetaTag("twitter:title", pageTitle, "name");
     setMetaTag("twitter:description", description, "name");
-    setMetaTag("twitter:image", image, "name");
+    setMetaTag("twitter:image", imageUrl, "name");
     setLinkTag("canonical", canonicalUrl);
   }, [title, description, canonicalPath, image, type]);
 
