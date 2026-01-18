@@ -1,0 +1,29 @@
+import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import BlogIndex from "./pages/BlogIndex";
+import BlogPost from "./pages/BlogPost";
+import About from "./pages/About";
+import Disclaimer from "./pages/Disclaimer";
+import NotFound from "./pages/NotFound";
+import { initializeTheme } from "./lib/theme";
+
+export default function App() {
+  useEffect(() => {
+    initializeTheme();
+  }, []);
+
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="blog" element={<BlogIndex />} />
+        <Route path="blog/:slug" element={<BlogPost />} />
+        <Route path="about" element={<About />} />
+        <Route path="disclaimer" element={<Disclaimer />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
+}
