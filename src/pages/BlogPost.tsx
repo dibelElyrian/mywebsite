@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import SEO from "../components/SEO";
 import PostCard from "../components/PostCard";
 import ProductRecommendation from "../components/ProductRecommendation";
+import AffiliateLink from "../components/AffiliateLink";
 import { formatDate } from "../lib/format";
 import { getPostBySlug, getRelatedPosts } from "../lib/posts";
 
@@ -16,10 +17,10 @@ export default function BlogPost() {
       <div className="space-y-4">
         <SEO title="Post not found" description="This post could not be found." />
         <h1 className="text-3xl font-bold">Post not found</h1>
-        <p className="text-slate-600 dark:text-slate-300">
+        <p className="text-muted">
           The post you are looking for does not exist or has been moved.
         </p>
-        <Link to="/blog" className="text-emerald-600">
+        <Link to="/blog" className="link">
           Back to blog
         </Link>
       </div>
@@ -41,19 +42,19 @@ export default function BlogPost() {
         image={post.coverImage}
       />
 
-      <article className="mx-auto flex w-full max-w-[72ch] flex-col gap-10 pb-12 text-[1.05rem] leading-[1.75]">
+      <article className="mx-auto flex w-full max-w-[70ch] flex-col gap-10 pb-12 text-[1.05rem] leading-[1.75]">
         <header className="space-y-5">
-          <Link to="/blog" className="text-sm font-semibold text-emerald-600">
+          <Link to="/blog" className="link">
             ← Back to blog
           </Link>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-50">
+          <h1 className="text-3xl font-bold text-text">
             {post.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
             <span>{formatDate(post.date)}</span>
             <Link
               to="/blog"
-              className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200"
+              className="chip"
             >
               {post.category}
             </Link>
@@ -67,7 +68,7 @@ export default function BlogPost() {
               loading="lazy"
             />
           ) : null}
-          <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="text-lg leading-relaxed text-muted">
             {post.description}
           </p>
           {post.tags.length > 0 ? (
@@ -76,7 +77,7 @@ export default function BlogPost() {
                 <Link
                   key={tag}
                   to={`/blog?tag=${encodeURIComponent(tag)}`}
-                  className="rounded-full border border-emerald-200 px-3 py-1 text-xs font-semibold text-emerald-700 transition hover:border-emerald-400 dark:border-emerald-900/60 dark:text-emerald-200"
+                  className="tag"
                 >
                   #{tag}
                 </Link>
@@ -86,8 +87,8 @@ export default function BlogPost() {
         </header>
 
         {ADS_ENABLED ? (
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400">
-            Ad slot (top of article) — AdSense code goes here.
+          <div className="rounded-2xl border-2 border-dashed border-border bg-surface px-6 py-10 text-center text-sm text-muted">
+            Ad slot (top of article). AdSense code goes here.
           </div>
         ) : null}
 
@@ -96,37 +97,60 @@ export default function BlogPost() {
             block.type === "product" ? (
               <ProductRecommendation key={`product-${index}`} {...block.data} />
             ) : (
-              <div
-                key={`markdown-${index}`}
-                className="prose prose-lg prose-slate dark:prose-invert"
-              >
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{block.content}</ReactMarkdown>
+              <div key={`markdown-${index}`} className="prose prose-lg dark:prose-invert">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    a: ({ href, children, ...props }) => {
+                      const url = href || "";
+                      const isAffiliate = /(?:^https?:\/\/)?(?:www\.)?(shopee\.ph|tiktok\.com|tiktok\.shop)/i.test(
+                        url
+                      );
+
+                      if (isAffiliate) {
+                        return <AffiliateLink href={url}>{children}</AffiliateLink>;
+                      }
+
+                      return (
+                        <a
+                          href={url}
+                          className="link"
+                          {...props}
+                        >
+                          {children}
+                        </a>
+                      );
+                    }
+                  }}
+                >
+                  {block.content}
+                </ReactMarkdown>
               </div>
             )
           )}
         </div>
 
         {ADS_ENABLED ? (
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400">
-            Ad slot (mid-article) — AdSense code goes here.
+          <div className="rounded-2xl border-2 border-dashed border-border bg-surface px-6 py-10 text-center text-sm text-muted">
+            Ad slot (mid-article). AdSense code goes here.
           </div>
         ) : null}
 
         {ADS_ENABLED ? (
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400">
-            Ad slot (bottom of article) — AdSense code goes here.
+          <div className="rounded-2xl border-2 border-dashed border-border bg-surface px-6 py-10 text-center text-sm text-muted">
+            Ad slot (bottom of article). AdSense code goes here.
           </div>
         ) : null}
 
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-muted">
           Links may lead to Shopee or TikTok Shop listings.
         </p>
       </article>
 
       {related.length > 0 ? (
-        <section className="border-t border-slate-200 pt-10 dark:border-slate-800">
+        <section className="border-t-2 border-border pt-10">
           <div className="mx-auto w-full max-w-5xl space-y-4">
-            <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+            <h2 className="section-title">
               Related articles
             </h2>
             <div className="grid gap-6 md:grid-cols-2">

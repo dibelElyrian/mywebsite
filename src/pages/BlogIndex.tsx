@@ -73,8 +73,8 @@ export default function BlogIndex() {
       />
 
       <header className="space-y-4">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Blog</h1>
-        <p className="text-base text-slate-600 dark:text-slate-300">
+        <h1 className="text-3xl font-bold text-text">Blog</h1>
+        <p className="text-base text-muted">
           Explore budget-friendly recommendations curated for Filipino shoppers.
         </p>
         <div className="flex flex-wrap items-center gap-4">
@@ -86,7 +86,7 @@ export default function BlogIndex() {
           <div className="flex flex-1 items-center gap-3">
             <label
               htmlFor="search"
-              className="text-sm font-medium text-slate-600 dark:text-slate-300"
+              className="text-sm font-medium text-muted"
             >
               Search
             </label>
@@ -95,7 +95,7 @@ export default function BlogIndex() {
               value={query}
               onChange={(event) => handleQueryChange(event.target.value)}
               placeholder="Search posts, tags, or keywords"
-              className="w-full max-w-sm rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm focus:border-emerald-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+              className="input max-w-sm"
             />
           </div>
         </div>
@@ -103,10 +103,10 @@ export default function BlogIndex() {
           <button
             type="button"
             onClick={() => handleTagChange("All")}
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+            className={`chip transition ${
               selectedTag === "All"
-                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200"
-                : "border-slate-200 text-slate-600 hover:border-emerald-300 hover:text-emerald-600 dark:border-slate-700 dark:text-slate-300"
+                ? "border-[color:var(--color-accent)] text-[color:var(--color-accent-2)]"
+                : "hover:border-[color:var(--color-accent)]"
             }`}
           >
             All tags
@@ -116,10 +116,10 @@ export default function BlogIndex() {
               key={tag}
               type="button"
               onClick={() => handleTagChange(tag)}
-              className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+              className={`chip transition ${
                 selectedTag === tag
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200"
-                  : "border-slate-200 text-slate-600 hover:border-emerald-300 hover:text-emerald-600 dark:border-slate-700 dark:text-slate-300"
+                  ? "border-[color:var(--color-accent)] text-[color:var(--color-accent-2)]"
+                  : "hover:border-[color:var(--color-accent)]"
               }`}
             >
               #{tag}

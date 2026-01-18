@@ -9,18 +9,17 @@ export default function About() {
         canonicalPath="/about"
       />
 
-      <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+      <h1 className="text-3xl font-bold text-text">
         About SulitFinds
       </h1>
-      <p className="text-base text-slate-600 dark:text-slate-300">
-        SulitFinds is a practical resource for Filipino shoppers who want to make
-        the most of every peso. We curate affordable recommendations, buying
-        guides, and product roundups that focus on value, availability, and
-        real-world use cases.
+      <p className="text-base text-muted">
+        SulitFinds is a practical guide for Filipino shoppers who want clear,
+        budget-friendly recommendations. We focus on value, availability, and
+        everyday use cases without exaggeration or hype.
       </p>
-      <p className="text-base text-slate-600 dark:text-slate-300">
-        Our goal is to help you discover budget-friendly picks across Shopee,
-        TikTok Shop, and other trusted marketplaces without the overwhelm.
+      <p className="text-base text-muted">
+        We review listings, specs, and real-world feedback to help you compare
+        options across Shopee, TikTok Shop, and other trusted marketplaces.
       </p>
     </div>
   );

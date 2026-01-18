@@ -8,7 +8,7 @@ type PostCardProps = {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+    <article className="card">
       {post.coverImage ? (
         <Link to={`/blog/${post.slug}`} className="mb-4 block overflow-hidden rounded-xl">
           <img
@@ -19,19 +19,19 @@ export default function PostCard({ post }: PostCardProps) {
           />
         </Link>
       ) : null}
-      <div className="mb-3 flex items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
+      <div className="mb-3 flex items-center gap-3 text-xs font-medium text-muted">
         <span>{formatDate(post.date)}</span>
-        <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+        <span className="chip">
           {post.category}
         </span>
         <span>{post.readingTime}</span>
       </div>
-      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
-        <Link to={`/blog/${post.slug}`} className="hover:underline">
+      <h3 className="text-xl font-semibold text-text">
+        <Link to={`/blog/${post.slug}`} className="link-muted">
           {post.title}
         </Link>
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+      <p className="mt-2 text-sm leading-relaxed text-muted">
         {post.description}
       </p>
       {post.tags.length > 0 ? (
@@ -39,7 +39,7 @@ export default function PostCard({ post }: PostCardProps) {
           {post.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200"
+              className="tag"
             >
               #{tag}
             </span>
@@ -48,7 +48,7 @@ export default function PostCard({ post }: PostCardProps) {
       ) : null}
       <Link
         to={`/blog/${post.slug}`}
-        className="mt-4 inline-flex text-sm font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
+        className="mt-4 inline-flex text-sm font-semibold link"
       >
         Read more →
       </Link>

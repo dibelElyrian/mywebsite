@@ -4,13 +4,171 @@
 
 :root {
   color-scheme: light dark;
+  --color-bg: #f7f1e3;
+  --color-surface: #fff7eb;
+  --color-text: #1b1c22;
+  --color-muted: #5a5b66;
+  --color-border: #d9cdbd;
+  --color-accent: #f4a42b;
+  --color-accent-2: #e86d5b;
+  --color-link: #226f9c;
+  --color-on-accent: #1b1c22;
+}
+
+.dark {
+  --color-bg: #0f1116;
+  --color-surface: #161a22;
+  --color-text: #f3ead7;
+  --color-muted: #b6b0a6;
+  --color-border: #2a3240;
+  --color-accent: #f1a23a;
+  --color-accent-2: #ef7b67;
+  --color-link: #7db6e1;
+  --color-on-accent: #1b1c22;
 }
 
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold transition-all duration-150;
+  }
+
+  .btn-primary {
+    @apply btn rounded-[10px] border-2;
+    border-color: var(--color-border);
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+    box-shadow: 3px 3px 0 var(--color-border);
+  }
+
+  .btn-primary:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 var(--color-border);
+  }
+
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--color-border);
+  }
+
+  .btn-secondary {
+    @apply btn rounded-[10px] border-2;
+    border-color: var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--color-surface) 70%, var(--color-accent) 30%);
+  }
+
+  .btn-ghost {
+    @apply btn rounded-[10px] border-2 bg-transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .btn-ghost:hover {
+    background-color: color-mix(in srgb, var(--color-surface) 70%, var(--color-border) 30%);
+  }
+
+  .card {
+    @apply rounded-2xl border-2 p-6 transition-all duration-200;
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    box-shadow: 4px 4px 0 var(--color-border);
+  }
+
+  .card:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 3px 3px 0 var(--color-border);
+  }
+
+  .link {
+    font-weight: 600;
+    color: var(--color-link);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .link:hover {
+    color: var(--color-accent-2);
+  }
+
+  .link-muted {
+    color: var(--color-muted);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border-2 px-3 py-1 text-xs font-semibold;
+    background-color: color-mix(in srgb, var(--color-surface) 80%, var(--color-accent) 20%);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full border-2 px-3 py-1 text-xs font-semibold;
+    border-color: color-mix(in srgb, var(--color-accent) 70%, var(--color-border) 30%);
+    color: var(--color-accent-2);
+  }
+
+  .input {
+    @apply w-full rounded-[10px] border-2 px-3 py-2 text-sm shadow-none transition;
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .input:focus {
+    outline: 2px solid transparent;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
+
+  .nav-link {
+    @apply rounded-[10px] border-2 px-3 py-2 text-sm font-semibold transition;
+    min-height: 44px;
+    border-color: transparent;
+    color: var(--color-muted);
+  }
+
+  .nav-link:hover {
+    border-color: var(--color-border);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.3em];
+    color: var(--color-accent-2);
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold;
+    color: var(--color-text);
+  }
 }
 
 .prose a {
+  color: var(--color-link);
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }

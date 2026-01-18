@@ -7,7 +7,7 @@ const TRANSITION_MAP: Array<[RegExp, string]> = [
 ];
 
 export function normalizeContent(input: string) {
-  let output = input.replace(/\s*—\s*/g, " - ");
+  let output = input.replace(/\s*[\u2014\u2013]\s*/g, " - ");
 
   TRANSITION_MAP.forEach(([pattern, replacement]) => {
     output = output.replace(pattern, replacement);
