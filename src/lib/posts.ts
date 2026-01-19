@@ -1,6 +1,8 @@
 import { getReadingTime } from "./readingTime";
 import { normalizeContent } from "./normalizeContent";
 
+const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit)(\b|\s|:|\()/i;
+
 export type Post = {
   title: string;
   slug: string;
@@ -69,10 +71,43 @@ function normalizeSlug(path: string) {
   return fileName.replace(/\.md$/, "");
 }
 
+function getHeadingLevel(line: string) {
+  const match = line.match(/^\s*(#{1,6})\s+/);
+  return match ? match[1].length : 0;
+}
+
+function stripEditorialSections(content: string) {
+  const lines = content.split(/\r?\n/);
+  const output: string[] = [];
+  let skip = false;
+  let skipLevel = 0;
+
+  for (const line of lines) {
+    if (!skip && NON_PUBLISHABLE_SECTION_PATTERN.test(line)) {
+      skip = true;
+      skipLevel = getHeadingLevel(line);
+      continue;
+    }
+
+    if (skip) {
+      const level = getHeadingLevel(line);
+      if (level > 0 && level <= skipLevel) {
+        skip = false;
+      } else {
+        continue;
+      }
+    }
+
+    output.push(line);
+  }
+
+  return output.join("\n").trim();
+}
+
 export function getAllPosts(): Post[] {
   const posts = Object.entries(modules).map(([path, raw]) => {
     const { data, content } = parseFrontmatter(raw);
-    const normalizedContent = normalizeContent(content);
+    const normalizedContent = normalizeContent(stripEditorialSections(content));
     const slug = data.slug || normalizeSlug(path);
     const normalizedDescription = normalizeContent(
       data.description || normalizedContent.slice(0, 160).trim()

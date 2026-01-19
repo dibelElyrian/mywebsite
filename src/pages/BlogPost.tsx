@@ -30,7 +30,7 @@ export default function BlogPost() {
   const related = getRelatedPosts(post, 3);
   const ADS_ENABLED = false;
 
-  const contentBlocks = parseContentBlocks(post.content);
+  const contentBlocks = parseContentBlocks(stripEditorialSections(post.content));
 
   return (
     <div className="space-y-12">
@@ -176,6 +176,41 @@ type ContentBlock =
   | { type: "product"; data: ProductBlockData };
 
 const SHORTCODE_REGEX = /\[product-recommendation\s+([^\]]+)\]/g;
+
+const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit)(\b|\s|:|\()/i;
+
+function getHeadingLevel(line: string) {
+  const match = line.match(/^\s*(#{1,6})\s+/);
+  return match ? match[1].length : 0;
+}
+
+function stripEditorialSections(content: string) {
+  const lines = content.split(/\r?\n/);
+  const output: string[] = [];
+  let skip = false;
+  let skipLevel = 0;
+
+  for (const line of lines) {
+    if (!skip && NON_PUBLISHABLE_SECTION_PATTERN.test(line)) {
+      skip = true;
+      skipLevel = getHeadingLevel(line);
+      continue;
+    }
+
+    if (skip) {
+      const level = getHeadingLevel(line);
+      if (level > 0 && level <= skipLevel) {
+        skip = false;
+      } else {
+        continue;
+      }
+    }
+
+    output.push(line);
+  }
+
+  return output.join("\n").trim();
+}
 
 function parseAttributes(input: string) {
   const attributes: Record<string, string> = {};

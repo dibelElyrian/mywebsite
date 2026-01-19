@@ -12,6 +12,9 @@ Production-ready starter for the SulitFinds affiliate blog.
 2. Start the dev server:
 	- `npm run dev`
 
+## Environment variables
+- Copy .env.example to .env.local and fill in your Shopee affiliate values.
+
 ## Production build
 1. Build the site:
 	- `npm run build`

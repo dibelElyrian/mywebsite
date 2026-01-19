@@ -1,3 +1,5 @@
+import AffiliateLink from "./AffiliateLink";
+
 type ProductRecommendationProps = {
   name: string;
   description: string;
@@ -23,14 +25,12 @@ export default function ProductRecommendation({
         <p className="text-sm leading-relaxed text-muted">
           {description}
         </p>
-        <a
+        <AffiliateLink
           href={url}
-          target="_blank"
-          rel="sponsored noopener"
           className="btn-primary"
         >
           {ctaLabel}
-        </a>
+        </AffiliateLink>
       </div>
     </section>
   );

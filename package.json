@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-feed.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "batch:tag-categories": "node scripts/tag-batchlinks-category.mjs",
+    "batch:mark-used": "node scripts/mark-batchlinks-used.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

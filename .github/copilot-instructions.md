@@ -28,6 +28,8 @@ Image usage rules:
 - Only use images that are public domain, CC0, royalty-free, or explicitly licensed for commercial use.
 - Acceptable sources include public-domain or CC0 libraries, AI-generated images created specifically for this site, and simple original graphics such as icons or diagrams.
 - Do not hotlink images from Shopee, TikTok Shop, brand websites, or other blogs or review sites.
+- Do not use marketplace product images from Shopee or TikTok Shop, even if sample images are available.
+- Do not use SVGs for cover images, use JPG or PNG.
 
 Image handling requirements:
 - Prefer generic, non-branded visuals such as product category illustrations or lifestyle shots.
