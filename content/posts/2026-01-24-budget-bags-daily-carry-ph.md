@@ -10,8 +10,6 @@ coverImage: "/images/cover-bags.jpg"
 
 A good daily carry bag should fit your essentials, stay comfortable for commutes, and handle the weather. Many budget options look similar, so focus on size, strap comfort, and pocket layout. This guide explains what to check and shares six budget picks from the batch list for common use cases.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Identify your daily carry needs.

@@ -10,8 +10,6 @@ coverImage: "/images/cover-mini-fan.jpg"
 
 Hot commutes are a daily reality in many Philippine cities. A handheld mini fan is a small fix that can make a bus, jeep, or tricycle ride more comfortable without taking much space. This guide focuses on one high demand option from the batch list, and it explains what to verify before you buy, so you avoid weak airflow or short battery life.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Who this mini fan is for.

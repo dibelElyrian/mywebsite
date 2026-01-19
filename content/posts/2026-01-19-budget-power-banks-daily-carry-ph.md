@@ -10,8 +10,6 @@ coverImage: "/images/cover-power-bank.jpg"
 
 Running out of battery during a commute or a long day out is frustrating. A reliable power bank keeps your phone charged without hunting for outlets. This guide explains what to look for in a budget power bank and shares four picks from Shopee that fit common needs.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Understand capacity and charging speed basics.

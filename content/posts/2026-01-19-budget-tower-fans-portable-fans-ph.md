@@ -10,8 +10,6 @@ coverImage: "/images/cover-tower-fan.jpg"
 
 Philippine summers demand reliable cooling, but air conditioning is expensive to run. Tower fans and portable fans offer budget-friendly alternatives for keeping cool at home or on the go. This guide covers what to look for and shares four picks from Shopee.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Understand different fan types and their best uses.

@@ -10,8 +10,6 @@ coverImage: "/images/cover-home-organization.jpg"
 
 Small homes need smart organization to feel spacious and functional. Clutter builds up fast when storage is limited. This guide covers practical organization strategies and shares five budget picks from Shopee that help maximize small spaces.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Identify your main clutter zones.

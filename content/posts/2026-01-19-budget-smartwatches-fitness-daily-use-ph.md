@@ -4,20 +4,18 @@ slug: "budget-smartwatches-fitness-daily-use-ph"
 date: "2026-01-19"
 category: "Tech"
 tags: ["smartwatch", "fitness tracker", "wearable", "tech", "budget", "philippines"]
-description: "A practical guide to budget smartwatches for fitness tracking and daily use in the Philippines, with five Shopee picks for different needs."
+description: "A practical guide to budget smartwatches for fitness tracking and daily use in the Philippines, with two solid Shopee picks."
 coverImage: "/images/cover-smartwatch.jpg"
 ---
 
-Smartwatches have become more affordable, making fitness tracking and notifications accessible on a budget. You no longer need to spend thousands for useful features. This guide covers what to look for and shares five picks from Shopee.
-
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
+Smartwatches have become more affordable, making fitness tracking and notifications accessible on a budget. You no longer need to spend thousands for useful features. This guide covers what to look for and shares two reliable picks from Shopee.
 
 ## Outline
 
 - Understand key smartwatch features.
 - Match features to your actual needs.
 - Consider battery life and charging.
-- Review five budget picks for different uses.
+- Review two budget picks for different uses.
 - Quick FAQ and buying tips.
 
 ## Key smartwatch features
@@ -68,86 +66,43 @@ For outdoor use, check sunlight visibility reviews.
 
 ## Budget smartwatch picks
 
-These picks come from the batch list and match common smartwatch needs. Prices and availability may change, so always confirm details before checkout.
+These picks come from verified Shopee listings. Prices and availability may change, so always confirm details before checkout.
 
-### Pick 1: Xiaomi Redmi Watch 5 Lite
+### Pick 1: Xiaomi Redmi Watch 5 Active
 
 **Recommended product:**
-- [Xiaomi Redmi Watch 5 Lite Bluetooth Phone Call 1.96" HD Display 5ATM Waterproof Smartwatch](https://s.shopee.ph/VJN2SNrXN)
+- [Xiaomi Redmi Watch 5 Active 2.0" LCD Display Bluetooth Phone Call 5ATM Alexa Built In](https://s.shopee.ph/1Vt3MA7ehz)
 
 **Why it fits:**
 - Xiaomi brand has reliable quality reputation.
+- 2.0" LCD display is large and readable.
 - Bluetooth phone call support for convenience.
-- 1.96" HD display is large and clear.
-- 5ATM water resistance for swimming.
-- Multiple sport modes for fitness tracking.
+- 5ATM water resistance for swimming and workouts.
+- Alexa built-in for voice commands.
 
 **What to check:**
 - Compatibility with your phone model.
 - Actual battery life from user reviews.
 
-### Pick 2: Oraimo budget smartwatch
+**Price:** Around P1,800
+
+### Pick 2: Oraimo OSW-812 Smart Watch
 
 **Recommended product:**
-- [Oraimo Smart Watch 1.96" AMOLED Full Touch 100+ Sports Modes IP68 Bluetooth Call Smartwatch](https://s.shopee.ph/4fE2sNJyGc)
+- [Oraimo OSW-812 Smart Watch 2.01" AMOLED Display IP68 Bluetooth Phone Call](https://s.shopee.ph/9zrbTmbITL)
 
 **Why it fits:**
-- AMOLED display for vibrant colors.
-- 100+ sports modes cover various activities.
-- IP68 waterproof rating.
-- Bluetooth call support.
-- Budget-friendly price point.
+- 2.01" AMOLED display for vibrant colors and deep blacks.
+- IP68 waterproof rating for daily protection.
+- Bluetooth call support lets you answer calls on your wrist.
+- Heart rate and step tracking for basic fitness monitoring.
+- Higher commission rate supports this site at no extra cost to you.
 
 **What to check:**
-- App compatibility and features.
+- App compatibility with your phone.
 - Heart rate sensor accuracy from reviews.
 
-### Pick 3: Ultra-thin fashion smartwatch
-
-**Recommended product:**
-- [Ultra Thin Smart Watch For Men Women 1.85" HD Screen Bluetooth Call IP67 Waterproof](https://s.shopee.ph/3qrZC4s5wo)
-
-**Why it fits:**
-- Ultra-thin design looks more like a regular watch.
-- 1.85" HD screen is readable.
-- Bluetooth call capability.
-- IP67 water resistance for daily use.
-- Suitable for both men and women.
-
-**What to check:**
-- Strap comfort for all-day wear.
-- Actual thinness compared to photos.
-
-### Pick 4: Full touch screen fitness watch
-
-**Recommended product:**
-- [Smart Watch Full Touch Screen Fitness Tracker Heart Rate Blood Pressure Monitor](https://s.shopee.ph/1qLKjMpXrH)
-
-**Why it fits:**
-- Full touch screen for easy navigation.
-- Heart rate and blood pressure monitoring.
-- Affordable entry-level price.
-- Basic fitness tracking features included.
-
-**What to check:**
-- Health sensor accuracy (not medical grade).
-- Battery life at typical usage.
-
-### Pick 5: Sports band with long battery
-
-**Recommended product:**
-- [Fitness Band Smart Bracelet Heart Rate Sleep Monitor IP68 Waterproof Long Battery Life](https://s.shopee.ph/7VB9ncKQrT)
-
-**Why it fits:**
-- Band form factor is lighter than watches.
-- Long battery life reduces charging frequency.
-- IP68 for water resistance.
-- Basic heart rate and sleep monitoring.
-- Lower price than full smartwatches.
-
-**What to check:**
-- Display size may be small for some users.
-- Feature set compared to full smartwatches.
+**Price:** Around P2,300
 
 ## Buying tips
 
@@ -172,29 +127,11 @@ These picks come from the batch list and match common smartwatch needs. Prices a
 
 ## Soft CTA
 
-Start with a basic fitness band if unsure. Upgrade to a full smartwatch after confirming you use the features regularly.
+Both picks offer solid value for budget smartwatches. The Xiaomi is a safe choice with brand reputation, while the Oraimo offers a premium AMOLED display at a slightly higher price.
 
 *Prices and availability may change. Always confirm details on the listing before checkout.*
 
 ## Related posts
 
-- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/affordable-bluetooth-earbuds-commute-ph)
 - [Budget Power Banks for Daily Carry in the Philippines](/blog/budget-power-banks-daily-carry-ph)
-
-## Affiliate Link Audit
-
-- Product: Xiaomi Redmi Watch 5 Lite Bluetooth Phone Call 1.96" HD Display 5ATM Waterproof Smartwatch
-  - URL: https://s.shopee.ph/VJN2SNrXN
-  - Section: Pick 1: Xiaomi Redmi Watch 5 Lite
-- Product: Oraimo Smart Watch 1.96" AMOLED Full Touch 100+ Sports Modes IP68 Bluetooth Call Smartwatch
-  - URL: https://s.shopee.ph/4fE2sNJyGc
-  - Section: Pick 2: Oraimo budget smartwatch
-- Product: Ultra Thin Smart Watch For Men Women 1.85" HD Screen Bluetooth Call IP67 Waterproof
-  - URL: https://s.shopee.ph/3qrZC4s5wo
-  - Section: Pick 3: Ultra-thin fashion smartwatch
-- Product: Smart Watch Full Touch Screen Fitness Tracker Heart Rate Blood Pressure Monitor
-  - URL: https://s.shopee.ph/1qLKjMpXrH
-  - Section: Pick 4: Full touch screen fitness watch
-- Product: Fitness Band Smart Bracelet Heart Rate Sleep Monitor IP68 Waterproof Long Battery Life
-  - URL: https://s.shopee.ph/7VB9ncKQrT
-  - Section: Pick 5: Sports band with long battery
+- [GOOJODOQ Turbo Mini Fan for PH Commuters](/blog/goojodoq-turbo-mini-fan-commuter-ph)

@@ -10,8 +10,6 @@ coverImage: "/images/cover-baby-essentials.jpg"
 
 New parents face a long list of baby essentials, and costs add up quickly. Many budget options work just as well as premium brands for everyday needs. This guide covers what to prioritize and shares five picks from Shopee that help new parents save without sacrificing quality.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Identify must-have vs nice-to-have items.

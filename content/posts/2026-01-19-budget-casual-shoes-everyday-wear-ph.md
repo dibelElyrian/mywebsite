@@ -10,8 +10,6 @@ coverImage: "/images/cover-casual-shoes.jpg"
 
 A reliable pair of casual shoes gets you through work, errands, and weekend plans without hurting your feet or your wallet. Many budget options deliver decent comfort and style for everyday use. This guide covers what to look for and shares five picks from Shopee.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Identify your main use case for casual shoes.

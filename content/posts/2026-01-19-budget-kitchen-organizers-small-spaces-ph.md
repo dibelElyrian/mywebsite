@@ -10,8 +10,6 @@ coverImage: "/images/cover-kitchen-organizer.jpg"
 
 A cluttered kitchen counter makes cooking harder and cleanup slower. Small kitchens need smart storage that fits tight spaces without costing too much. This guide covers what to look for in budget kitchen organizers and shares five picks from Shopee that match common needs.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Identify your kitchen storage gaps.

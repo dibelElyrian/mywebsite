@@ -10,8 +10,6 @@ coverImage: "/images/cover-beauty.jpg"
 
 Good skincare and makeup do not have to cost a fortune. Many budget products deliver solid results for everyday use. This guide covers what to look for in affordable beauty items and shares five picks from Shopee that match common needs.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Understand your skin type and needs.

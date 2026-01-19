@@ -10,8 +10,6 @@ coverImage: "/images/cover-pet-food.jpg"
 
 Feeding pets well does not have to drain your budget. Many affordable pet food options provide decent nutrition for everyday meals. This guide explains what to consider when choosing budget pet food and shares four picks from Shopee for cats and dogs.
 
-**Affiliate disclosure:** This post contains affiliate links. If you buy through them, SulitFinds may earn a small commission at no extra cost to you.
-
 ## Outline
 
 - Understand basic pet nutrition needs.
