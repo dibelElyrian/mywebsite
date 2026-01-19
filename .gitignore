@@ -453,3 +453,6 @@ FodyWeavers.xsd
 tsconfig.tsbuildinfo
 *.log
 !*.log.md
+
+# Personal reference docs
+docs/blog-income-expectations.md
