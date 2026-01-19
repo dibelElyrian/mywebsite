@@ -448,3 +448,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Build artifacts
+tsconfig.tsbuildinfo
+*.log
+!*.log.md
