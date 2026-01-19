@@ -6,8 +6,15 @@ Project context:
 - Website name: SulitFinds
 - Domain: https://sulitfinds.com
 - Purpose: Affiliate blog for budget-friendly product recommendations in the Philippines
-- Monetization: Shopee & TikTok affiliate links
+- Monetization: Shopee & TikTok affiliate links + Google AdSense (pending approval)
 - Audience: Filipino, budget-conscious buyers
+
+Current integrations (as of January 2026):
+- Google Analytics: G-7L8HGVP5MZ (active)
+- Google AdSense: ca-pub-5445824954891095 (verification code deployed, awaiting approval)
+- Pinterest Business: Verified (domain claimed via meta tag)
+- Google Search Console: Sitemap submitted
+- Batch affiliate links: /public/batchlinks/*.csv (source of truth for Shopee Offer Links)
 
 Global rules:
 - Prefer simple, maintainable solutions
@@ -68,6 +75,31 @@ Tech constraints:
 - Content: Markdown files in repo (no external CMS)
 - Hosting: Netlify (static)
 - Routing: React Router
+
+Current content status:
+- 25 blog posts in /content/posts/
+- 24 cover images in /public/images/ (JPG/PNG, 16:9 ratio)
+- All affiliate links use Offer Link from batch CSV (mandatory)
+
+Affiliate link rules:
+- ALWAYS use Offer Link from /public/batchlinks/*.csv as the affiliate URL
+- The batch CSV is the source of truth for earning commissions
+- Never invent or guess affiliate links
+- If a product is not in the batch CSV, do not recommend it or request a new batch export
+
+Blog post affiliate disclosure:
+- Do NOT add per-post affiliate disclosures (removed per user preference)
+- Site-wide Disclaimer page at /disclaimer handles affiliate disclosure
+- Privacy Policy at /privacy handles data collection disclosure
+
+Pinterest workflow (for new posts):
+- After publishing a new post, create a Pinterest pin with:
+  - Cover image from /public/images/
+  - Post title as pin title
+  - Post description as pin description
+  - Full URL to the blog post
+  - 5-6 relevant tags
+- Add to the "Budget Finds Philippines" board
 
 You are allowed to:
 - Create files and folders

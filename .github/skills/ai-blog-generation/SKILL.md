@@ -196,6 +196,7 @@ Guidelines:
 - Emphasize value for budget-conscious Filipino buyers: availability and key use cases.
 - Use a helpful, neutral tone that supports informed decisions.
 - Include affiliate disclosures when linking to Shopee or TikTok Shop.
+- Per-post affiliate disclosure: NOT required (site-wide Disclaimer page handles this).
 - Distinguish between mentions vs recommendations:
 	- Mentions: informational references → no affiliate link.
 	- Recommendations: actionable suggestions → eligible for affiliate links.
@@ -231,3 +232,17 @@ Quality checks:
 - Accurate dates and availability notes with a “may change” disclaimer.
 - Respect SEO best practices: unique title, compelling meta description, and natural keyword usage.
 - Quick FAQ format must use bullet items with bold Question and Answer labels on separate lines, with a blank line between them.
+Cover image requirements:
+- Every post must have a cover image in /public/images/
+- Format: JPG or PNG only (no SVG)
+- Ratio: 16:9 preferred
+- Naming: cover-[topic-slug].jpg (e.g., cover-smartwatch.jpg)
+- If no suitable image exists, note it and request user to provide one
+
+New post checklist (after generation):
+1. Verify all affiliate links use Offer Link from batch CSV
+2. Confirm cover image exists in /public/images/
+3. Run sitemap regeneration: npm run generate:sitemap
+4. Commit and push changes
+5. Create Pinterest pin (see copilot-instructions.md for workflow)
+6. Update topic-registry.md
