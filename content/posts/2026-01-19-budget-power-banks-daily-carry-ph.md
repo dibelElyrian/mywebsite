@@ -147,7 +147,7 @@ Pick a power bank that matches your daily routine. A slim 10,000mAh model handle
 
 ## Related posts
 
-- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/affordable-bluetooth-earbuds-commute-ph)
+- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/budget-tech-accessories-commute-ph)
 - [GOOJODOQ Turbo Mini Fan for PH Commuters: A Practical Buying Guide](/blog/goojodoq-turbo-mini-fan-commuter-ph)
 
 ## Affiliate Link Audit

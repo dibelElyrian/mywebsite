@@ -127,8 +127,8 @@ A handheld fan is for personal cooling. A desk fan is for steady airflow in a fi
 
 ## Related posts
 
-- [Budget Air Purifiers for Small Bedrooms in the Philippines](/blog/budget-air-purifiers-small-bedrooms-ph)
-- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/affordable-bluetooth-earbuds-commute-ph)
+- [Budget Air Purifiers for Small Bedrooms in the Philippines](/blog/budget-room-makeover-essentials-small-bedrooms-ph)
+- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/budget-tech-accessories-commute-ph)
 
 ## Affiliate Link Audit
 

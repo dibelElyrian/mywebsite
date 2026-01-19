@@ -153,7 +153,7 @@ If a power bank stops holding charge well, it may be time to replace it rather t
 
 ## Related posts
 
-- Prepare for brownouts with [rechargeable-led-emergency-lights-ph](/blog/rechargeable-led-emergency-lights-ph)
+- Prepare for brownouts with [rechargeable-led-emergency-lights-ph](/blog/budget-home-cleaning-maintenance-essentials-ph)
 - Organize small spaces with [budget-home-organization-small-spaces-ph](/blog/budget-home-organization-small-spaces-ph)
 
 ## Soft CTA

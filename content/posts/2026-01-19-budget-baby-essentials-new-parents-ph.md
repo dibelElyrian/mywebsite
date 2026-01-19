@@ -170,7 +170,7 @@ Focus your budget on daily-use items first. Fancy accessories can wait until you
 ## Related posts
 
 - [Budget Home Organization Ideas for Small Spaces in the Philippines](/blog/budget-home-organization-small-spaces-ph)
-- [Budget Electric Kettles for Dorms and Small Kitchens in the Philippines](/blog/budget-electric-kettles-dorms-ph)
+- [Budget Electric Kettles for Dorms and Small Kitchens in the Philippines](/blog/budget-kitchen-storage-organization-small-spaces-ph)
 
 ## Affiliate Link Audit
 

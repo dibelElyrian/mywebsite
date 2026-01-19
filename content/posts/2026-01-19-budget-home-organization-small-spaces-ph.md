@@ -166,7 +166,7 @@ Pick one clutter zone and solve it with a single organizer. Small improvements c
 ## Related posts
 
 - [Budget Kitchen Organizers for Small Spaces in the Philippines](/blog/budget-kitchen-organizers-small-spaces-ph)
-- [Rechargeable LED Emergency Lights for Brownouts in the Philippines](/blog/rechargeable-led-emergency-lights-ph)
+- [Rechargeable LED Emergency Lights for Brownouts in the Philippines](/blog/budget-home-cleaning-maintenance-essentials-ph)
 
 ## Affiliate Link Audit
 

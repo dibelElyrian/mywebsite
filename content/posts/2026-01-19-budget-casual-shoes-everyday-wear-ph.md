@@ -165,7 +165,7 @@ Pick a shoe that matches your daily routine first. A comfortable, versatile pair
 ## Related posts
 
 - [Budget Bags for Daily Carry in the Philippines](/blog/budget-bags-daily-carry-ph)
-- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/affordable-bluetooth-earbuds-commute-ph)
+- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/budget-tech-accessories-commute-ph)
 
 ## Affiliate Link Audit
 

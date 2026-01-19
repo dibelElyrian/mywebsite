@@ -156,7 +156,7 @@ Start with one fan for your most-used space. Add portable options for outdoor co
 ## Related posts
 
 - [GOOJODOQ Turbo Mini Fan for PH Commuters: A Practical Buying Guide](/blog/goojodoq-turbo-mini-fan-commuter-ph)
-- [Budget Air Purifiers for Small Bedrooms in the Philippines](/blog/budget-air-purifiers-small-bedrooms-ph)
+- [Budget Air Purifiers for Small Bedrooms in the Philippines](/blog/budget-room-makeover-essentials-small-bedrooms-ph)
 
 ## Affiliate Link Audit
 

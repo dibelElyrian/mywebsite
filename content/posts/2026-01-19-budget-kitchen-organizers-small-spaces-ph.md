@@ -163,8 +163,8 @@ Start with your biggest clutter problem and pick one organizer that solves it. A
 
 ## Related posts
 
-- [Budget Electric Kettles for Dorms and Small Kitchens in the Philippines](/blog/budget-electric-kettles-dorms-ph)
-- [Budget Induction Cookers for Small Apartments in the Philippines](/blog/budget-induction-cookers-small-apartments-ph)
+- [Budget Electric Kettles for Dorms and Small Kitchens in the Philippines](/blog/budget-kitchen-storage-organization-small-spaces-ph)
+- [Budget Induction Cookers for Small Apartments in the Philippines](/blog/budget-cookware-kitchen-essentials-small-apartments-ph)
 
 ## Affiliate Link Audit
 
