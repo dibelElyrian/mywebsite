@@ -9,29 +9,48 @@ const contentDir = path.join(rootDir, "content", "posts");
 const distDir = path.join(rootDir, "dist");
 const baseUrl = "https://sulitfinds.com";
 
-const staticRoutes = ["/", "/blog", "/about", "/disclaimer", "/feed.xml"];
+const today = new Date().toISOString().split("T")[0];
 
-const postSlugs = fs
+const staticRoutes = [
+  { path: "/", lastmod: today },
+  { path: "/blog", lastmod: today },
+  { path: "/about", lastmod: today },
+  { path: "/disclaimer", lastmod: today },
+  { path: "/privacy", lastmod: today },
+  { path: "/feed.xml", lastmod: today }
+];
+
+const postRoutes = fs
   .readdirSync(contentDir)
   .filter((file) => file.endsWith(".md"))
   .map((file) => {
     const filePath = path.join(contentDir, file);
     const raw = fs.readFileSync(filePath, "utf8");
+    const stats = fs.statSync(filePath);
     const { data } = matter(raw);
     const fallbackSlug = file.replace(/\.md$/, "");
-    return data.slug || fallbackSlug;
+    const slug = data.slug || fallbackSlug;
+    const lastmod = data.date || stats.mtime.toISOString().split("T")[0];
+    return { path: `/blog/${slug}`, lastmod };
   });
 
-const urls = [...staticRoutes, ...postSlugs.map((slug) => `/blog/${slug}`)];
+const allRoutes = [...staticRoutes, ...postRoutes];
 
-const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
-  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  urls
-    .map((route) => `  <url><loc>${baseUrl}${route}</loc></url>`)
-    .join("\n") +
-  "\n</urlset>\n";
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allRoutes
+  .map(
+    (route) =>
+      `  <url>\n    <loc>${baseUrl}${route.path}</loc>\n    <lastmod>${route.lastmod}</lastmod>\n  </url>`
+  )
+  .join("\n")}
+</urlset>
+`;
 
-const robotsTxt = `User-agent: *\nAllow: /\nSitemap: ${baseUrl}/sitemap.xml\n`;
+const robotsTxt = `User-agent: *
+Allow: /
+Sitemap: ${baseUrl}/sitemap.xml
+`;
 
 fs.mkdirSync(distDir, { recursive: true });
 fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemapXml, "utf8");

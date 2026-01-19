@@ -5,6 +5,13 @@ declare module "*.md?raw" {
   export default content;
 }
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
+
 interface ImportMetaEnv {
   readonly VITE_SHOPEE_AFFILIATE_ID?: string;
   readonly VITE_SHOPEE_SUB_ID?: string;

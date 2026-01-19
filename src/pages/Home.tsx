@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
+import { generateWebsiteJsonLd } from "../components/JsonLd";
 import PostCard from "../components/PostCard";
 import { getAllPosts, getCategories } from "../lib/posts";
 
@@ -15,8 +16,10 @@ export default function Home() {
         title="Budget-friendly finds for Filipino buyers"
         description="SulitFinds curates affordable, practical product recommendations and guides for budget-conscious shoppers in the Philippines."
         canonicalPath="/"
+      />      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateWebsiteJsonLd() }}
       />
-
       <section className="rounded-[28px] border-2 border-border bg-surface p-10 shadow-[6px_6px_0_var(--color-border)]">
         <div className="max-w-2xl space-y-4">
           <p className="section-kicker">SulitFinds</p>

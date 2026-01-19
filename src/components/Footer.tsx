@@ -10,6 +10,10 @@ export default function Footer() {
           <Link to="/disclaimer" className="link">
             disclaimer
           </Link>
+          {" "}and{" "}
+          <Link to="/privacy" className="link">
+            privacy policy
+          </Link>
           .
         </span>
       </div>

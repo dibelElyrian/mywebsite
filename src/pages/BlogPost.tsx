@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SEO from "../components/SEO";
+import JsonLd from "../components/JsonLd";
 import PostCard from "../components/PostCard";
 import ProductRecommendation from "../components/ProductRecommendation";
 import AffiliateLink from "../components/AffiliateLink";
@@ -41,6 +42,7 @@ export default function BlogPost() {
         type="article"
         image={post.coverImage}
       />
+      <JsonLd post={post} />
 
       <article className="mx-auto flex w-full max-w-[70ch] flex-col gap-10 pb-12 text-[1.05rem] leading-[1.75]">
         <header className="space-y-5">
@@ -103,12 +105,27 @@ export default function BlogPost() {
                   components={{
                     a: ({ href, children, ...props }) => {
                       const url = href || "";
-                      const isAffiliate = /(?:^https?:\/\/)?(?:www\.)?(shopee\.ph|tiktok\.com|tiktok\.shop)/i.test(
+                      const isAffiliate = /(?:^https?:\/\/)?(?:www\.)?(shopee\.ph|s\.shopee\.ph|shope\.ee|tiktok\.com|tiktok\.shop)/i.test(
                         url
                       );
+                      const isExternal = /^https?:\/\//i.test(url) && !url.includes("sulitfinds.com");
 
                       if (isAffiliate) {
                         return <AffiliateLink href={url}>{children}</AffiliateLink>;
+                      }
+
+                      if (isExternal) {
+                        return (
+                          <a
+                            href={url}
+                            className="link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            {...props}
+                          >
+                            {children}
+                          </a>
+                        );
                       }
 
                       return (

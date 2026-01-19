@@ -129,8 +129,8 @@ A handheld fan is for personal cooling. A desk fan is for steady airflow in a fi
 
 ## Related posts
 
-- [Electric Fan Types for Small Rooms in the Philippines: Desk vs Stand vs Tower](/blog/electric-fan-types-small-rooms-ph)
-- [Power Bank Basics for Daily Commuters in the Philippines](/blog/power-bank-basics-commuters-ph)
+- [Budget Air Purifiers for Small Bedrooms in the Philippines](/blog/budget-air-purifiers-small-bedrooms-ph)
+- [Affordable Bluetooth Earbuds for Daily Commutes in the Philippines](/blog/affordable-bluetooth-earbuds-commute-ph)
 
 ## Affiliate Link Audit
 

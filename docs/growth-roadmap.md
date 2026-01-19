@@ -1,175 +1,230 @@
 # SulitFinds Growth Roadmap
 
-This roadmap focuses on traffic generation and monetization readiness. Updated: January 19, 2026.
+This roadmap focuses on traffic generation and monetization readiness.
 
-## Current Status
-
-- **Published posts:** 7
-- **Google Analytics:** Blocked by CSP (needs fix)
-- **AdSense:** Not applied (need 25+ posts)
-- **Pinterest:** Not started
-- **Email list:** Not started
+**Last Updated:** January 19, 2026
 
 ---
 
-## Phase 1: Foundation (Days 1-30) - CONTENT SPRINT
+## Current Status Summary
 
-### Week 1: Technical Fixes
+| Item | Status | Notes |
+|------|--------|-------|
+| Published posts | 19 | Need 6 more for AdSense (target: 25+) |
+| Cover images | 12 done, 7 pending | Need images for 7 newest posts |
+| Google Analytics | ✅ Working | Tracking visitors |
+| JSON-LD Schema | ✅ Done | Article, Breadcrumb, Website |
+| Privacy Policy | ✅ Done | /privacy route |
+| Disclaimer | ✅ Done | /disclaimer route |
+| About Page | ✅ Done | Enhanced with transparency sections |
+| Cookie Consent | ✅ Done | Banner with localStorage |
+| Sitemap | ✅ Done | Auto-generated with lastmod |
+| Pinterest | ❌ Not started | Free traffic source |
+| Email List | ❌ Not started | Audience ownership |
+| AdSense | ❌ Not applied | Apply after 25+ posts |
+| Facebook Page | ❌ Not started | Social presence |
 
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Fix CSP for Google Analytics | 🔴 To Do | Update `netlify.toml` to allow googletagmanager.com and google-analytics.com in script-src |
-| Add Privacy Policy page | 🔴 To Do | Create `/privacy` route with standard privacy policy covering analytics, cookies, affiliate data |
-| Add cookie consent banner | 🔴 To Do | Add simple banner component that stores consent in localStorage |
-| Convert og-default.svg to PNG | 🔴 To Do | Export 1200x630px PNG, update references in index.html and site.ts |
-| Remove broken internal links | 🔴 To Do | Audit posts for links to non-existent pages, remove or create placeholder posts |
+---
 
-### Weeks 1-4: Content Production
+## YOUR NEXT STEPS (Prioritized)
 
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Publish 12 new posts (3/week) | 🔴 To Do | Use ai-blog-generation skill, target long-tail keywords |
-| Create content calendar | 🔴 To Do | Plan topics for next 30 days in topic-registry.md |
-| Target keyword variations | 🔴 To Do | Include "under 500 pesos", "vs comparison", "review 2026" |
+### 🔴 Step 1: Create 7 Cover Images (TODAY - 30 mins)
 
-**Content Ideas for Week 1-4:**
+You need cover images for the 7 new posts. Use Canva with these prompts:
+
+| File Name | Canva Prompt |
+|-----------|--------------|
+| cover-beauty.jpg | Flat lay of skincare products and lip tints on pink marble, no logos |
+| cover-casual-shoes.jpg | Casual sneakers on wooden floor, neutral colors, no logos |
+| cover-tower-fan.jpg | White tower fan in bright minimalist living room |
+| cover-travel-essentials.jpg | Flat lay of luggage, passport holder, packing cubes |
+| cover-smartwatch.jpg | Smartwatch on wrist showing fitness screen, active lifestyle |
+| cover-cookware.jpg | Non-stick pans on kitchen counter, warm lighting |
+| cover-cleaning-tools.jpg | Organized mop and cleaning supplies in bright home |
+
+Save as 1200x630px JPG in `/public/images/`
+
+---
+
+### 🔴 Step 2: Write 6 More Posts (THIS WEEK - reach 25 posts)
+
+Ask me to generate 6 more posts. Topics to cover:
 1. Budget rice cookers for small families
-2. Affordable phone holders for commuters
-3. Best USB fans under 300 pesos
-4. Budget webcams for WFH setups
-5. Compact storage organizers for small rooms
-6. Budget LED desk lamps for students
-7. Affordable water bottles for daily carry
-8. Budget extension cords with surge protection
-9. Cheap but reliable charging cables
-10. Budget laundry organizers for dorms
-11. Affordable kitchen timers and scales
-12. Budget phone stands for video calls
+2. Budget LED desk lamps for students
+3. Budget phone holders for cars
+4. Budget extension cords with surge protection
+5. Budget water bottles for daily carry
+6. Budget laundry organizers for dorms
 
-### Week 2: Pinterest Setup
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Create Pinterest Business account | 🔴 To Do | Sign up at business.pinterest.com, verify sulitfinds.com |
-| Create pin templates in Canva | 🔴 To Do | Design 2-3 templates: "Budget [Product] Guide PH" style |
-| Create 30 pins from existing posts | 🔴 To Do | 4-5 pins per post with different angles/keywords |
-| Research group boards | 🔴 To Do | Find Filipino lifestyle, shopping, home organization boards |
-
-### Week 3: SEO Enhancements
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Add JSON-LD Article schema | 🔴 To Do | Update BlogPost.tsx to inject structured data |
-| Add JSON-LD FAQ schema | 🔴 To Do | Parse FAQ sections and generate schema |
-| Add BreadcrumbList schema | 🔴 To Do | Add to all pages for better SERP display |
-| Add lastmod to sitemap | 🔴 To Do | Update generate-sitemap.mjs to read file dates |
-
-### Week 4: Email List Setup
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Choose email provider | 🔴 To Do | Buttondown (free tier) or ConvertKit |
-| Create lead magnet PDF | 🔴 To Do | "50 Best Budget Finds Under 500 Pesos" checklist |
-| Add signup form to site | 🔴 To Do | Create EmailSignup component, add to Home and BlogPost |
-| Set up welcome email | 🔴 To Do | Configure auto-responder with lead magnet delivery |
+After 25 posts, you can apply for AdSense.
 
 ---
 
-## Phase 2: Growth (Days 31-60) - TRAFFIC CHANNELS
+### 🟡 Step 3: Set Up Pinterest Business Account (30 mins)
 
-### Weeks 5-8: Content Expansion
+**Why:** Pinterest is a search engine, not just social media. Pins can drive traffic for YEARS.
 
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Publish 12 more posts (3/week) | 🔴 To Do | Total: 31 posts |
-| Create 2 pillar content pieces | 🔴 To Do | 2000+ word comprehensive guides |
-| Build content clusters | 🔴 To Do | Link related posts to pillar content |
-
-**Pillar Content Ideas:**
-1. "Complete Guide to Budget Kitchen Appliances in the Philippines (2026)"
-2. "Ultimate WFH Setup on a Budget: Filipino Edition"
-
-### Week 5: Facebook Launch
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Create Facebook Page | 🔴 To Do | Use SulitFinds branding, link to website |
-| Join 5 budget shopping groups | 🔴 To Do | Find active Filipino groups: tipid tips, budget finds, etc. |
-| Share posts with value-add | 🔴 To Do | Don't spam links; add genuine commentary |
-
-### Week 6: UX Improvements
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Add table of contents | 🔴 To Do | Auto-generate from H2/H3 headings for long posts |
-| Add social share buttons | 🔴 To Do | Facebook, Twitter, copy link, Pinterest |
-| Add reading progress bar | 🔴 To Do | Sticky progress indicator at top of posts |
-
-### Week 8: AdSense Application
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Verify content quality | 🔴 To Do | Ensure 25+ substantial posts, no thin content |
-| Check compliance | 🔴 To Do | Privacy policy, about page, contact info |
-| Apply for AdSense | 🔴 To Do | Submit application, expect 1-2 week review |
+**How:**
+1. Go to business.pinterest.com
+2. Create account with "SulitFinds" name
+3. Verify your website (they will give you a meta tag or HTML file)
+4. Tell me when done - I will help you verify
 
 ---
 
-## Phase 3: Optimization (Days 61-90) - MONETIZATION
+### 🟡 Step 4: Create Pinterest Pins (ONGOING)
 
-### Weeks 9-12: Scale What Works
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Publish 12 more posts | 🔴 To Do | Total: 43 posts |
-| Analyze top performers | 🔴 To Do | Check GA for highest traffic posts, create similar content |
-| Implement affiliate click tracking | 🔴 To Do | Add gtag events to AffiliateLink component |
-| Create seasonal content | 🔴 To Do | Valentine's gifts, summer prep, back-to-school |
-
-### Week 10: Search Functionality
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Add client-side search | 🔴 To Do | Use Fuse.js for fuzzy search across posts |
-| Add search to header | 🔴 To Do | Collapsible search input with results dropdown |
-
-### Week 12: Media Kit
-
-| Task | Status | Action Plan |
-|------|--------|-------------|
-| Create media kit page | 🔴 To Do | Traffic stats, audience demographics, sponsorship packages |
-| Define sponsored post pricing | 🔴 To Do | Based on traffic metrics at 90-day mark |
+After Pinterest is set up:
+1. Create a pin template in Canva (1000x1500px vertical)
+2. Make 2-3 pins per blog post with different headlines
+3. Post 3-5 pins per day
 
 ---
 
-## Key Metrics to Track
+### 🟡 Step 5: Apply for Google AdSense (After 25 posts)
 
-| Metric | Tool | 30-Day Target | 60-Day Target | 90-Day Target |
-|--------|------|---------------|---------------|---------------|
-| Published posts | Manual | 19 | 31 | 43 |
-| Organic sessions | Google Analytics | 100 | 300 | 500 |
-| Pinterest impressions | Pinterest Analytics | 2,000 | 5,000 | 10,000 |
-| Email subscribers | Email provider | 25 | 50 | 100 |
-| Affiliate clicks | GA Events | 10 | 30 | 50 |
+**Requirements you already have:**
+- ✅ Original content
+- ✅ Privacy Policy
+- ✅ About page
+- ✅ Contact information
+- ✅ Good navigation
 
----
-
-## Quick Reference: Priority Order
-
-1. 🔴 **CRITICAL** - Fix CSP for Google Analytics (blocking all tracking)
-2. 🔴 **CRITICAL** - Content production (3+ posts/week)
-3. 🔴 **CRITICAL** - Pinterest setup and pinning
-4. 🟡 **HIGH** - Privacy Policy page
-5. 🟡 **HIGH** - JSON-LD structured data
-6. 🟡 **HIGH** - Email signup infrastructure
-7. 🟢 **MEDIUM** - UX improvements (TOC, share buttons)
-8. 🟢 **MEDIUM** - AdSense application (after 25+ posts)
+**What to do:**
+1. Go to adsense.google.com
+2. Sign up with your Google account
+3. Add your site: sulitfinds.com
+4. Paste the verification code in your site
+5. Wait 1-2 weeks for approval
 
 ---
 
-## Notes
+### 🟢 Step 6: Set Up Email Newsletter (Later)
 
-- Do not sacrifice content quality for speed
-- Each post should target a specific long-tail keyword
-- Update this roadmap weekly with status changes
-- Track all published topics in topic-registry.md to avoid duplication
+Use Buttondown.com (free up to 100 subscribers):
+1. Sign up at buttondown.com
+2. Tell me - I will add a signup form to the site
+3. Send weekly "Best Finds" roundup emails
+
+---
+
+### 🟢 Step 7: Create Facebook Page (Later)
+
+1. Create Facebook Page named "SulitFinds"
+2. Join Filipino budget shopping groups
+3. Share posts with genuine value, not spam
+
+---
+
+## Monetization Timeline (Realistic)
+
+| Timeframe | Expected Status |
+|-----------|-----------------|
+| Week 1-2 | 25+ posts, Pinterest active, AdSense applied |
+| Week 3-4 | AdSense approved (hopefully), first ad revenue |
+| Month 2 | 35+ posts, 100+ daily visitors, P500-1000/month |
+| Month 3 | 45+ posts, 300+ daily visitors, P1500-3000/month |
+| Month 6 | 70+ posts, 1000+ daily visitors, P5000-10000/month |
+
+**Note:** These are estimates. Actual results depend on content quality, SEO, and traffic growth.
+
+---
+
+## Money Sources for This Site
+
+| Source | When to Expect | Potential |
+|--------|---------------|-----------|
+| **Google AdSense** | After approval (Week 3-4) | P0.50-5 per 1000 views |
+| **Shopee Affiliate** | Already active | 1-8% commission per sale |
+| **TikTok Shop Affiliate** | Already active | 1-10% commission per sale |
+| **Sponsored Posts** | After 10k monthly visitors | P2000-10000 per post |
+
+---
+
+## Content Ideas Backlog
+
+### High-Priority (High search volume in PH)
+- Budget rice cookers for small families
+- Affordable phone cases with card holders
+- Budget webcams for online classes/WFH
+- Cheap but good earphones for students
+- Budget home wifi routers
+- Affordable face masks and skincare
+
+### Medium-Priority
+- Budget desk organizers for students
+- Affordable food containers for meal prep
+- Budget laptop stands for WFH
+- Cheap mini refrigerators for dorms
+- Budget curtains and blinds
+- Affordable towels and bathroom essentials
+
+### Seasonal (Plan Ahead)
+- Valentine's gift ideas under P500 (publish Jan 25-30)
+- Summer cooling essentials (publish March)
+- Back-to-school budget finds (publish May-June)
+- Christmas gift guides (publish November)
+
+---
+
+## Technical Improvements Backlog
+
+| Feature | Priority | Status |
+|---------|----------|--------|
+| Table of Contents for long posts | Medium | Not started |
+| Social share buttons | Medium | Not started |
+| Search functionality | Low | Not started |
+| Reading progress bar | Low | Not started |
+| FAQ schema in JSON-LD | Low | Not started |
+
+---
+
+## Weekly Checklist Template
+
+Copy this for each week:
+
+```
+## Week of [DATE]
+
+### Content
+- [ ] Publish 3 new posts
+- [ ] Create cover images for new posts
+- [ ] Update topic-registry.md
+
+### Pinterest
+- [ ] Create 10+ new pins
+- [ ] Check Pinterest Analytics
+
+### Maintenance
+- [ ] Check Google Analytics for traffic
+- [ ] Check affiliate dashboard for clicks/sales
+- [ ] Update any outdated product links
+
+### Notes
+[Add any observations or learnings]
+```
+
+---
+
+## How to Ask Me for Help
+
+Just say:
+- "Generate 6 more blog posts" - I will create new content
+- "Help me set up Pinterest verification" - I will add the meta tag
+- "Add AdSense code to my site" - I will implement it
+- "Create email signup form" - I will build the component
+- "What should I do next?" - I will check this roadmap and guide you
+
+---
+
+## Important Reminders
+
+1. **Quality over speed** - One good post beats three rushed ones
+2. **Be patient** - SEO takes 3-6 months to show results
+3. **Stay consistent** - 2-3 posts per week is sustainable
+4. **Do not buy traffic** - Organic growth is safer and more valuable
+5. **Track everything** - Check Analytics weekly to see what works
+
+---
+
+*This roadmap is your guide. Update it as you complete tasks. Ask me anytime for help with the next step.*
