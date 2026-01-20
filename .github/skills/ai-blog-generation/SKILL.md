@@ -165,11 +165,41 @@ Cover image requirements:
 New post checklist (after generation):
 1. Verify content provides genuine value to the reader
 2. Confirm affiliate links use Offer Link from batch CSV (if applicable)
-3. Verify cover image exists in /public/images/
+3. Update topic-registry.md with new entries
 4. Run sitemap regeneration: npm run generate:sitemap
-5. Commit and push changes
-6. Create Pinterest pin (see copilot-instructions.md for workflow)
-7. Update topic-registry.md
+5. Run sensitive data scan (required by copilot-instructions.md)
+
+BEFORE PUSHING - Cover Image Reminder (MANDATORY):
+- Stop and remind user to create cover images for all new posts
+- For each post, provide:
+  - Required filename: /public/images/[slug].jpg
+  - Canva prompt suggestion: A simple, descriptive prompt for creating a copyright-safe cover image
+  - Example: "Minimalist flat illustration of a home office desk with laptop, notebook, and coffee mug. Clean background, soft colors, 16:9 ratio."
+- Canva prompt guidelines:
+  - Use generic, non-branded visuals
+  - Avoid logos, trademarks, or identifiable brand packaging
+  - Suggest lifestyle or category illustrations over specific products
+  - Specify 16:9 ratio in the prompt
+- Wait for user confirmation that images are ready before proceeding to push
+
+AFTER PUSHING - Pinterest Pin Reminder (MANDATORY):
+- After successful push, remind user to create Pinterest pins
+- For each new post, provide:
+  - Pin title: Post title
+  - Pin description: Post meta description
+  - Pin URL: https://sulitfinds.com/blog/[slug]
+  - Board: "Budget Finds Philippines" (or relevant board)
+  - Suggested hashtags: 5-6 relevant tags based on post category and keywords
+- Example output format:
+  ```
+  Pinterest Pin for: [Post Title]
+  - Image: /public/images/[slug].jpg
+  - Title: [Post Title]
+  - Description: [Meta description]
+  - URL: https://sulitfinds.com/blog/[slug]
+  - Board: Budget Finds Philippines
+  - Tags: #budgettips #philippines #[topic] #[category] #sulitfinds
+  ```
 
 Quality checks before publishing:
 - Does the post answer the reader's question? (required)
