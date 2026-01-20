@@ -4,7 +4,7 @@ slug: "budget-power-banks-daily-carry-ph"
 date: "2026-01-19"
 category: "Tech"
 tags: ["power bank", "tech", "gadgets", "commute", "budget", "philippines"]
-description: "A practical guide to choosing a budget power bank for daily use, with four Shopee picks for commuters and students in the Philippines."
+description: "A practical guide to choosing a budget power bank for daily use, with three Shopee picks for commuters and students in the Philippines."
 coverImage: "/images/cover-power-bank.jpg"
 ---
 
@@ -105,19 +105,6 @@ These picks come from the batch list and match common daily carry needs. Prices 
 - Interior compartment sizes for your specific power bank.
 - Zipper quality for frequent use.
 
-### Pick 4: Budget Bluetooth speaker with power features
-
-**Recommended product:**
-- [Bluetooth Speaker with mic Wireless Bluetooth Dual Microphone Karaoke Speaker 3D](https://s.shopee.ph/7VAGVBkoWZ)
-
-**Why it fits:**
-- Some portable speakers include power bank functionality for emergency charging.
-- Good for group gatherings where you want music and backup power.
-
-**What to check:**
-- Confirm if this model includes phone charging output.
-- Battery capacity for power bank mode.
-
 ## Quick decision checklist
 
 - If you want no cables to carry, pick a power bank with built-in cords.
@@ -161,6 +148,3 @@ Pick a power bank that matches your daily routine. A slim 10,000mAh model handle
 - Product: Hagibis Multi-functional Digital Storage Bag Electronic Storage Bag Travel Cable Storage Bag Portable Cable Organizer
   - URL: https://s.shopee.ph/9KbugYdpoE
   - Section: Pick 3: Digital storage bag for power bank and cables
-- Product: Bluetooth Speaker with mic Wireless Bluetooth Dual Microphone Karaoke Speaker 3D
-  - URL: https://s.shopee.ph/7VAGVBkoWZ
-  - Section: Pick 4: Budget Bluetooth speaker with power features

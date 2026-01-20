@@ -107,21 +107,7 @@ These picks come from the batch list and match common small home needs. Prices a
 - Measure window width carefully before ordering.
 - Installation method (drill or no-drill).
 
-### Pick 4: Sweeping robot for effortless cleaning
-
-**Recommended product:**
-- [MINI Sweeping Machine Mopping Smart Automatic Cleaning Robot Sweeping Robot for Home Use Ultra-thin](https://s.shopee.ph/7KqqIslRrW)
-
-**Why it fits:**
-- Automated cleaning saves time for busy households.
-- Ultra-thin design reaches under furniture.
-- Budget-friendly entry into robot vacuums.
-
-**What to check:**
-- Battery life and charging time.
-- Surface compatibility (tiles, wood, carpet).
-
-### Pick 5: Carpet for living room or bedroom
+### Pick 4: Carpet for living room or bedroom
 
 **Recommended product:**
 - [IMUTO Colorful Carpet Living Room Carpet Bedroom/Livingroom Rug Soft and Comfortable Antislip Floor Mat](https://s.shopee.ph/6AesujptEB)

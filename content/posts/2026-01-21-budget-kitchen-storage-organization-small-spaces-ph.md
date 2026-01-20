@@ -1,10 +1,10 @@
 ---
-title: "Budget Kitchen Storage and Organization for Small Spaces in the Philippines"
+title: "Budget Kitchen Cabinets and Vertical Storage for Small Spaces in the Philippines"
 slug: "budget-kitchen-storage-organization-small-spaces-ph"
 date: "2026-01-21"
 category: "Kitchen"
-tags: ["kitchen storage", "dish rack", "organization", "small kitchen", "budget", "philippines"]
-description: "Practical guide to organizing a small kitchen on a budget, with affordable dish racks, cabinets, and storage picks available in the Philippines."
+tags: ["kitchen storage", "kitchen cabinet", "vertical storage", "small kitchen", "budget", "philippines"]
+description: "Vertical storage cabinets and shelving solutions for small Filipino kitchens. Maximize space without a renovation."
 coverImage: "/images/cover-kitchen-organizer.jpg"
 ---
 

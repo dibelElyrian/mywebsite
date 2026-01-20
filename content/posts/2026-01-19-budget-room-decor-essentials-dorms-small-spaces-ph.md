@@ -4,7 +4,7 @@ slug: "budget-room-decor-essentials-dorms-small-spaces-ph"
 date: "2026-01-19"
 category: "Home Essentials"
 tags: ["room decor", "carpet", "curtains", "blinds", "dorm", "budget", "philippines"]
-description: "A practical guide to budget room decor essentials for dorms and small spaces in the Philippines, with five Shopee picks for carpets, curtains, blinds, and more."
+description: "A practical guide to budget room decor essentials for dorms and small spaces in the Philippines, with four Shopee picks for carpets, curtains, blinds, and bed frames."
 coverImage: "/images/cover-room-decor.jpg"
 ---
 
@@ -116,23 +116,7 @@ These picks match common room decor needs for small spaces. Prices and availabil
 - Window width compatibility.
 - Mounting type (inside or outside frame).
 
-### Pick 4: Mini sweeping robot for clean spaces
-
-**Recommended product:**
-- [MINI Sweeping Machine Robot](https://s.shopee.ph/7KqqIslRrW)
-
-**Why it fits:**
-- A clean room is the best decor foundation.
-- Automated cleaning for busy students or professionals.
-- Compact size fits small spaces and storage.
-- Handles dust, hair, and light debris.
-- Fun gadget that also serves a purpose.
-
-**What to check:**
-- Battery life for your room size.
-- Surface compatibility (hardwood, tile, low-pile carpet).
-
-### Pick 5: Iron bed frame for room anchor
+### Pick 4: Iron bed frame for room anchor
 
 **Recommended product:**
 - [IKEA Iron Bed Frame](https://s.shopee.ph/AUns4hZOSO)

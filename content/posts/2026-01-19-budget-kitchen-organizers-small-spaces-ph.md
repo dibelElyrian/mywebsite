@@ -1,10 +1,10 @@
 ---
-title: "Budget Kitchen Organizers for Small Spaces in the Philippines"
+title: "Budget Dish Racks and Sink Organizers for Small Kitchens in the Philippines"
 slug: "budget-kitchen-organizers-small-spaces-ph"
 date: "2026-01-19"
 category: "Kitchen"
-tags: ["kitchen", "organizers", "dish rack", "storage", "budget", "philippines"]
-description: "A practical guide to budget kitchen organizers for small Filipino kitchens, with five Shopee picks for dish racks, sink caddies, and storage solutions."
+tags: ["kitchen", "dish rack", "sink organizer", "drainer", "budget", "philippines"]
+description: "Dish racks, sink caddies, and draining solutions for small Filipino kitchens. Budget picks for the sink area."
 coverImage: "/images/cover-kitchen-organizer.jpg"
 ---
 
