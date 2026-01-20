@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="section-title">Shop by category</h2>
+        <h2 className="section-title">Browse by topic</h2>
         <div className="flex flex-wrap gap-3">
           {categories.map((category) => (
             <Link

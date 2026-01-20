@@ -2,22 +2,40 @@
 
 This roadmap outlines monetization options for SulitFinds, ordered by difficulty for a solo developer running a static Netlify site.
 
-## 1) Affiliate links (Shopee/TikTok)
+**Core principle:** Traffic through valuable content first, monetization second. All revenue strategies should support, not undermine, the reader-first approach.
+
+## Primary: Google AdSense
 **Difficulty:** Easy
 
-**Setup effort:** Add affiliate disclosures and use affiliate links only for clear recommendations; update content templates and components as needed.
+**Setup effort:** Add AdSense verification code, create ads.txt, ensure content quality and legal pages exist.
 
-**When to start:** Immediately (Phase 1) with initial posts.
+**When to start:** Immediately after 25+ quality posts (current status).
+
+**Why it fits quality-first:**
+- Revenue scales with traffic, not product pushing
+- Works on all content types (how-tos, guides, tips)
+- No pressure to force product links
+
+**Current status:** Verification deployed, awaiting approval.
+
+## Secondary: Affiliate links (Shopee/TikTok)
+**Difficulty:** Easy
+
+**Setup effort:** Use affiliate links only when products genuinely help the reader; batch CSV is source of truth.
+
+**When to start:** Only when content naturally includes product recommendations.
 
 **Risks/pitfalls:**
 - Over-linking can hurt trust and reduce readability.
 - Non-compliant disclosures can cause policy or network issues.
+- Forcing products into unrelated content damages credibility.
 
 **Best-fit content types:**
-- Product roundups and budget guides.
-- “Best value” lists and starter kits.
+- Buying guides where products genuinely help
+- Comparison posts where readers need to make a purchase decision
+- NOT how-to guides or tips that don't need products
 
-## 2) Sponsored content
+## 3) Sponsored content
 **Difficulty:** Medium
 
 **Setup effort:** Create a sponsored content policy, disclosure template, and a contact page; define pricing and review workflow.

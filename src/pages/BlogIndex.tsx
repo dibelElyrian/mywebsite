@@ -68,14 +68,14 @@ export default function BlogIndex() {
     <div className="space-y-8">
       <SEO
         title="Blog"
-        description="Browse the latest SulitFinds posts, including guides, product roundups, and budget tips."
+        description="Browse the latest SulitFinds posts, including practical guides, budget tips, and helpful answers."
         canonicalPath="/blog"
       />
 
       <header className="space-y-4">
         <h1 className="text-3xl font-bold text-text">Blog</h1>
         <p className="text-base text-muted">
-          Explore budget-friendly recommendations curated for Filipino shoppers.
+          Practical guides, budget tips, and helpful answers for everyday Filipino questions.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <CategoryFilter

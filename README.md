@@ -1,6 +1,6 @@
 # SulitFinds
 
-Production-ready starter for the SulitFinds affiliate blog.
+Practical living guides for budget-conscious Filipinos. A static blog built with Vite, React, and TypeScript.
 
 ## Requirements
 - Node.js 20+ (recommended)
