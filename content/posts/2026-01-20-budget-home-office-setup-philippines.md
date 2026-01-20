@@ -10,7 +10,7 @@ tags:
   - budget workspace
   - remote work
   - productivity
-image: /images/budget-home-office-setup-philippines.jpg
+coverImage: /images/budget-home-office-setup-philippines.jpg
 imageAlt: A simple home office workspace with a desk, laptop, and organized accessories
 ---
 

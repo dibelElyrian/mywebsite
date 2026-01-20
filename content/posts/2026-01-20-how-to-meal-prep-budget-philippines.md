@@ -5,7 +5,7 @@ date: "2026-01-20"
 category: "Money Saving"
 tags: ["meal prep", "food budget", "cooking", "saving money", "budget tips", "philippines"]
 description: "A practical guide to meal prepping in the Philippines. Save money and time by preparing weekly meals with local ingredients and simple recipes."
-coverImage: "/images/cover-meal-prep.jpg"
+coverImage: "/images/how-to-meal-prep-budget-philippines.jpg"
 ---
 
 Eating out or ordering delivery every day adds up fast. For many Filipino workers and students, food is one of the biggest monthly expenses after rent and transportation. Meal prepping solves this by letting you cook once and eat well throughout the week.

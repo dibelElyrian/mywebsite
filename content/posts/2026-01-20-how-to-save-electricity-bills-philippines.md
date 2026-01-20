@@ -5,7 +5,7 @@ date: "2026-01-20"
 category: "Money Saving"
 tags: ["electricity", "Meralco", "utility bills", "saving money", "budget tips", "philippines"]
 description: "Practical ways to lower your monthly electricity bill in the Philippines. Simple habit changes and appliance tips that reduce costs without sacrificing comfort."
-coverImage: "/images/cover-electricity-savings.jpg"
+coverImage: "/images/how-to-save-electricity-bills-philippines.jpg"
 ---
 
 High electricity bills are a common pain point for Filipino households. With rates that seem to climb every year, finding ways to cut consumption without sacrificing comfort makes a real difference in your monthly budget.
