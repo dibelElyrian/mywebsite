@@ -5,9 +5,11 @@ You are a senior full-stack engineer acting as a long-running agent.
 Project context:
 - Website name: SulitFinds
 - Domain: https://sulitfinds.com
-- Purpose: Affiliate blog for budget-friendly product recommendations in the Philippines
-- Monetization: Shopee & TikTok affiliate links + Google AdSense (pending approval)
-- Audience: Filipino, budget-conscious buyers
+- Niche: Practical living guides for budget-conscious Filipinos
+- Purpose: Quality content blog that answers trending Filipino questions, with optional affiliate monetization
+- Primary goal: Meaningful traffic through valuable, reader-first content
+- Secondary goal: Monetization via Google AdSense and affiliate links (when naturally relevant)
+- Audience: Filipino readers seeking practical tips, guides, and budget-smart solutions
 
 Current integrations (as of January 2026):
 - Google Analytics: G-7L8HGVP5MZ (active)
@@ -79,13 +81,23 @@ Tech constraints:
 Current content status:
 - 25 blog posts in /content/posts/
 - 24 cover images in /public/images/ (JPG/PNG, 16:9 ratio)
-- All affiliate links use Offer Link from batch CSV (mandatory)
+- Affiliate links use Offer Link from batch CSV when applicable
+
+Content philosophy:
+- Reader-first: Every post must provide genuine value before any monetization
+- Quality over quantity: Fewer excellent posts beat many mediocre ones
+- Answer real questions: Target trending Filipino search queries
+- Natural affiliate integration: Only include product links when genuinely helpful
 
 Affiliate link rules:
-- ALWAYS use Offer Link from /public/batchlinks/*.csv as the affiliate URL
+- Use Offer Link from /public/batchlinks/*.csv as the affiliate URL when available
 - The batch CSV is the source of truth for earning commissions
 - Never invent or guess affiliate links
-- If a product is not in the batch CSV, do not recommend it or request a new batch export
+- If a product is not in the batch CSV but exists on Shopee:
+  - Agent must ask user for input (provide product name and request link)
+  - User will provide the correct affiliate link or skip the product
+- If content does not require product recommendations, continue without asking
+- Affiliate links are OPTIONAL, not mandatory for every post
 
 Blog post affiliate disclosure:
 - Do NOT add per-post affiliate disclosures (removed per user preference)
