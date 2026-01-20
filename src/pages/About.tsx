@@ -6,7 +6,7 @@ export default function About() {
     <div className="mx-auto max-w-2xl space-y-8">
       <SEO
         title="About"
-        description="Learn why SulitFinds helps Filipino shoppers find budget-friendly recommendations."
+        description="SulitFinds provides practical living guides for budget-conscious Filipinos. We answer real questions with helpful, reader-first content."
         canonicalPath="/about"
       />
 
@@ -17,23 +17,24 @@ export default function About() {
       <section className="space-y-4">
         <h2 className="text-xl font-semibold text-text">What We Do</h2>
         <p className="text-base leading-relaxed text-muted">
-          SulitFinds is a practical guide for Filipino shoppers who want clear,
-          budget-friendly recommendations. We focus on value, availability, and
-          everyday use cases without exaggeration or hype.
+          SulitFinds creates practical living guides for budget-conscious Filipinos. 
+          We answer the questions you're actually searching for, from everyday tips 
+          to smart buying decisions.
         </p>
         <p className="text-base leading-relaxed text-muted">
-          We review listings, specs, and real-world feedback to help you compare
-          options across Shopee, TikTok Shop, and other trusted marketplaces.
+          Our goal is simple: give you genuinely helpful information first. 
+          Product recommendations come second, and only when they truly help.
         </p>
       </section>
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold text-text">Our Approach</h2>
         <ul className="list-inside list-disc space-y-2 text-base text-muted">
-          <li>We research products based on specs, seller ratings, and buyer reviews.</li>
+          <li>We write content that answers real questions Filipinos are asking.</li>
+          <li>We prioritize reader value over affiliate links or product pushing.</li>
+          <li>We research thoroughly using specs, reviews, and local context.</li>
           <li>We do not claim personal testing unless explicitly stated.</li>
-          <li>We prioritize practical value over trends or hype.</li>
-          <li>We update posts when products become unavailable or better options appear.</li>
+          <li>We update posts when information changes or better options appear.</li>
         </ul>
       </section>
 

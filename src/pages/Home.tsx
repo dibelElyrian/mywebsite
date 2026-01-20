@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <div className="space-y-12">
       <SEO
-        title="Budget-friendly finds for Filipino buyers"
-        description="SulitFinds curates affordable, practical product recommendations and guides for budget-conscious shoppers in the Philippines."
+        title="Practical guides for budget-conscious Filipinos"
+        description="SulitFinds answers trending Filipino questions with practical living guides, budget tips, and smart recommendations."
         canonicalPath="/"
       />      <script
         type="application/ld+json"
@@ -24,11 +24,11 @@ export default function Home() {
         <div className="max-w-2xl space-y-4">
           <p className="section-kicker">SulitFinds</p>
           <h1 className="text-4xl font-bold text-text">
-            Budget-friendly recommendations for smarter Filipino shoppers.
+            Practical living guides for budget-conscious Filipinos.
           </h1>
           <p className="text-base text-muted">
-            We highlight sulit picks, practical buying guides, and product roundups
-            so you can shop with confidence without overspending.
+            We answer the questions you're searching for, with helpful tips, 
+            honest guides, and smart picks that fit your budget.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
