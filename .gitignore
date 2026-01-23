@@ -462,6 +462,19 @@ tsconfig.tsbuildinfo
 /dist/
 /dist-ssr/
 
+# VS Code workspace settings (optional - can be tracked if you want shared settings)
+.vs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
 # Personal reference docs
 docs/blog-income-expectations.md
 

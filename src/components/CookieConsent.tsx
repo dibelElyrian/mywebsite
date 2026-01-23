@@ -27,16 +27,14 @@ function enableAnalytics() {
   if (!GA_MEASUREMENT_ID) return;
   const win = window as GtagWindow;
   win.dataLayer = win.dataLayer || [];
-  function gtag(...args: unknown[]) {
-    win.dataLayer?.push(args);
+  // Must use 'arguments' object, not rest params - gtag.js expects this exact format
+  function gtag() {
+    // eslint-disable-next-line prefer-rest-params
+    win.dataLayer?.push(arguments);
   }
-  win.gtag = win.gtag || gtag;
-  win.gtag("consent", "update", {
-    analytics_storage: "granted",
-    ad_storage: "granted"
-  });
-  win.gtag("js", new Date());
-  win.gtag("config", GA_MEASUREMENT_ID);
+  win.gtag = win.gtag || (gtag as GtagWindow["gtag"]);
+  win.gtag!("js", new Date());
+  win.gtag!("config", GA_MEASUREMENT_ID);
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
 }
 
