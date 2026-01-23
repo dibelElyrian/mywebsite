@@ -8,7 +8,7 @@ Project context:
 - Niche: Practical living guides for budget-conscious Filipinos
 - Purpose: Quality content blog that answers trending Filipino questions, with affiliate monetization that stays reader-first
 - Primary goal: Meaningful traffic through valuable, reader-first content
-- Secondary goal: Monetization via Google AdSense and affiliate links (target at least 1 affiliate link per post, only when genuinely helpful; if no relevant product exists, get explicit user approval to publish without a link)
+- Secondary goal: Monetization via Google AdSense and affiliate links (default 3 product recommendations per post, 1 link per product; if no relevant product exists or a different count is needed, get explicit user approval)
 - Audience: Filipino readers seeking practical tips, guides, and budget-smart solutions
 
 Current integrations (as of January 2026):
@@ -16,7 +16,6 @@ Current integrations (as of January 2026):
 - Google AdSense: ca-pub-5445824954891095 (verification code deployed, awaiting approval)
 - Pinterest Business: Verified (domain claimed via meta tag)
 - Google Search Console: Sitemap submitted
-- Batch affiliate links: /public/batchlinks/*.csv (source of truth for Shopee Offer Links)
 
 Global rules:
 - Prefer simple, maintainable solutions
@@ -82,23 +81,19 @@ Tech constraints:
 Current content status:
 - 25 blog posts in /content/posts/
 - 24 cover images in /public/images/ (JPG/PNG, 16:9 ratio)
-- Affiliate links use Offer Link from batch CSV when applicable
 
 Content philosophy:
 - Reader-first: Every post must provide genuine value before any monetization
 - Quality over quantity: Fewer excellent posts beat many mediocre ones
 - Answer real questions: Target trending Filipino search queries
-- Natural affiliate integration: Include at least 1 affiliate link per post in a recommendation section, only when genuinely helpful
+- Natural affiliate integration: Include 3 product recommendations per post in a recommendation section, 1 link per product, only when genuinely helpful. For listicles, keep to "Top 3" unless the user approves a different count.
 
 Affiliate link rules:
-- Use Offer Link from /public/batchlinks/*.csv as the affiliate URL when available
-- The batch CSV is the source of truth for earning commissions
+- Always ask the user to provide or confirm affiliate links before inserting them
 - Never invent or guess affiliate links
-- If a product is not in the batch CSV but exists on Shopee:
-  - Agent must ask user for input (provide product name and request link)
-  - User will provide the correct affiliate link or skip the product
-- If content does not require product recommendations, ask the user to approve publishing without an affiliate link or provide a suitable product
-- Affiliate links are REQUIRED per post unless the user explicitly approves an exception
+- For each recommended product: request the affiliate link or a SKIP confirmation
+- If content does not require product recommendations, ask the user to approve publishing without affiliate links or provide suitable products
+- Default is 3 affiliate links per post, one per product. If no relevant products exist or the topic is purely informational, ask for approval to publish without links. If a different number is needed, get explicit user approval first.
 
 Blog post affiliate disclosure:
 - Do NOT add per-post affiliate disclosures (removed per user preference)

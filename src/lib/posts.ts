@@ -1,7 +1,7 @@
 import { getReadingTime } from "./readingTime";
 import { normalizeContent } from "./normalizeContent";
 
-const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit)(\b|\s|:|\()/i;
+const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit|Related posts)(\b|\s|:|\()/i;
 
 export type Post = {
   title: string;
@@ -154,7 +154,7 @@ function scoreRelated(post: Post, candidate: Post) {
 
 export function getRelatedPosts(current: Post, limit = 3) {
   const posts = getAllPosts().filter((post) => post.slug !== current.slug);
-  return posts
+  const related = posts
     .map((post) => ({
       post,
       score: scoreRelated(current, post)
@@ -166,4 +166,15 @@ export function getRelatedPosts(current: Post, limit = 3) {
     })
     .slice(0, limit)
     .map((item) => item.post);
+
+  if (related.length >= limit) {
+    return related;
+  }
+
+  const remaining = posts
+    .filter((post) => !related.some((item) => item.slug === post.slug))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit - related.length);
+
+  return [...related, ...remaining];
 }

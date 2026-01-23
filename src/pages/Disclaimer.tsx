@@ -41,6 +41,19 @@ export default function Disclaimer() {
       </section>
 
       <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-text">Buyer Responsibility and Safety</h2>
+        <p className="text-base leading-relaxed text-muted">
+          We encourage readers to do their own research before purchasing. Review seller
+          ratings, product reviews, return policies, and any safety or authenticity details
+          relevant to the item.
+        </p>
+        <p className="text-base leading-relaxed text-muted">
+          Purchases are made at your own risk. SulitFinds is not liable for any loss,
+          damage, injury, or dispute arising from transactions or product use.
+        </p>
+      </section>
+
+      <section className="space-y-4">
         <h2 className="text-xl font-semibold text-text">Product Testing</h2>
         <p className="text-base leading-relaxed text-muted">
           Unless explicitly stated otherwise, we do not personally test products featured 

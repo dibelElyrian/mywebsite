@@ -55,14 +55,14 @@ YOU write/generate → Markdown posts → Website displays them → Visitors cli
 
 ### Option 1: Ask the AI
 Say: "Generate a blog post about budget [topic]"
-Note: Each post should include at least 1 affiliate link when a product is genuinely helpful. If no relevant product exists, ask for an exception.
+Note: Each post should include 3 product recommendations with 1 affiliate link per product when genuinely helpful. If no relevant product exists or a different count is needed, ask for an exception.
 
 ### Option 2: Manual
 1. Create a new `.md` file in `content/posts/`
 2. Name it: `YYYY-MM-DD-your-topic-slug.md`
 3. Copy the format from an existing post
 4. Add a cover image to `public/images/`
-5. Include at least 1 affiliate link in a recommendation section, or note the exception
+5. Include 3 product recommendations in a recommendation section, 1 link per product, or note the approved exception
 
 ---
 

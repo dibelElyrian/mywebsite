@@ -213,7 +213,7 @@ Use this checklist to keep the site running for 6 months with minimal code chang
 ### Per-Post Checklist
 - [ ] Topic validated with keyword research and no overlap in `docs/topic-registry.md`
 - [ ] Content tier chosen (Quick, Cluster, or Pillar) with a clear outline
-- [ ] Include at least 1 affiliate link from the batch CSV; if no relevant product exists, get approval to publish without one
+- [ ] Include 3 product recommendations, 1 affiliate link per product; if no relevant products exist or a different count is needed, get approval
 - [ ] Add 2 internal links to related posts
 - [ ] Cover image exists in `/public/images/` (JPG or PNG, 16:9 ratio)
 - [ ] Frontmatter complete: title, slug, date, category, tags, description, coverImage

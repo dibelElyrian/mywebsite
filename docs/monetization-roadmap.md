@@ -21,9 +21,9 @@ This roadmap outlines monetization options for SulitFinds, ordered by difficulty
 ## Secondary: Affiliate links (Shopee/TikTok)
 **Difficulty:** Easy
 
-**Setup effort:** Include at least 1 affiliate link per post, but only when products genuinely help the reader; batch CSV is source of truth. If no relevant product exists, request an exception.
+**Setup effort:** Include 3 product recommendations per post, 1 link per product, but only when products genuinely help the reader; affiliate links are provided by the site owner. If no relevant product exists or a different count is needed, request an exception.
 
-**When to start:** Start now - plan each post to include a small, genuinely helpful recommendation section.
+**When to start:** Start now - plan each post to include a small, genuinely helpful recommendation section (Top 3 is the default for listicle-style posts).
 
 **Risks/pitfalls:**
 - Over-linking can hurt trust and reduce readability.

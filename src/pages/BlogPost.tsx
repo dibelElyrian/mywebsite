@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -28,10 +29,11 @@ export default function BlogPost() {
     );
   }
 
-  const related = getRelatedPosts(post, 3);
+  const related = getRelatedPosts(post, 4);
   const ADS_ENABLED = false;
-
-  const contentBlocks = parseContentBlocks(stripEditorialSections(post.content));
+  const cleanedContent = stripEditorialSections(post.content);
+  const contentBlocks = parseContentBlocks(cleanedContent);
+  const { tocEntries, blockHeadingLineMaps } = buildTocAndBlockIds(contentBlocks);
 
   return (
     <div className="space-y-12">
@@ -88,6 +90,26 @@ export default function BlogPost() {
           ) : null}
         </header>
 
+        {tocEntries.length > 1 ? (
+          <nav className="rounded-2xl border-2 border-border bg-surface p-5 text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+              On this page
+            </p>
+            <ul className="mt-3 space-y-2">
+              {tocEntries.map((entry) => (
+                <li
+                  key={entry.id}
+                  className={entry.level === 3 ? "ml-4" : entry.level === 4 ? "ml-7" : ""}
+                >
+                  <a href={`#${entry.id}`} className="link-muted">
+                    {entry.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
+
         {ADS_ENABLED ? (
           <div className="rounded-2xl border-2 border-dashed border-border bg-surface px-6 py-10 text-center text-sm text-muted">
             Ad slot (top of article). AdSense code goes here.
@@ -95,56 +117,27 @@ export default function BlogPost() {
         ) : null}
 
         <div className="space-y-10">
-          {contentBlocks.map((block, index) =>
-            block.type === "product" ? (
-              <ProductRecommendation key={`product-${index}`} {...block.data} />
-            ) : (
+          {contentBlocks.map((block, index) => {
+            if (block.type === "product") {
+              return (
+                <ProductRecommendation key={`product-${index}`} {...block.data} />
+              );
+            }
+
+            const headingLineMap = blockHeadingLineMaps[index] ?? new Map<number, string>();
+            const markdownComponents = createMarkdownComponents(headingLineMap);
+
+            return (
               <div key={`markdown-${index}`} className="prose prose-lg dark:prose-invert">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
-                  components={{
-                    a: ({ href, children, ...props }) => {
-                      const url = href || "";
-                      const isAffiliate = /(?:^https?:\/\/)?(?:www\.)?(shopee\.ph|s\.shopee\.ph|shope\.ee|tiktok\.com|tiktok\.shop)/i.test(
-                        url
-                      );
-                      const isExternal = /^https?:\/\//i.test(url) && !url.includes("sulitfinds.com");
-
-                      if (isAffiliate) {
-                        return <AffiliateLink href={url}>{children}</AffiliateLink>;
-                      }
-
-                      if (isExternal) {
-                        return (
-                          <a
-                            href={url}
-                            className="link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            {...props}
-                          >
-                            {children}
-                          </a>
-                        );
-                      }
-
-                      return (
-                        <a
-                          href={url}
-                          className="link"
-                          {...props}
-                        >
-                          {children}
-                        </a>
-                      );
-                    }
-                  }}
+                  components={markdownComponents}
                 >
                   {block.content}
                 </ReactMarkdown>
               </div>
-            )
-          )}
+            );
+          })}
         </div>
 
         {ADS_ENABLED ? (
@@ -160,7 +153,9 @@ export default function BlogPost() {
         ) : null}
 
         <p className="text-sm text-muted">
-          Links may lead to Shopee or TikTok Shop listings.
+          Links may lead to Shopee or TikTok Shop listings. Always review seller ratings,
+          product details, and return policies before buying. Purchases are your
+          responsibility. See <Link to="/disclaimer" className="link">Disclaimer</Link>.
         </p>
       </article>
 
@@ -193,8 +188,9 @@ type ContentBlock =
   | { type: "product"; data: ProductBlockData };
 
 const SHORTCODE_REGEX = /\[product-recommendation\s+([^\]]+)\]/g;
+const TOC_HEADING_PATTERN = /^\s*(#{2})\s+(.+)$/;
 
-const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit)(\b|\s|:|\()/i;
+const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit|Related posts)(\b|\s|:|\()/i;
 
 function getHeadingLevel(line: string) {
   const match = line.match(/^\s*(#{1,6})\s+/);
@@ -277,4 +273,139 @@ function parseContentBlocks(content: string): ContentBlock[] {
   }
 
   return blocks;
+}
+
+type TocEntry = {
+  id: string;
+  text: string;
+  level: number;
+};
+
+function stripMarkdown(input: string) {
+  return input
+    .replace(/\[(.*?)\]\([^)]+\)/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/[*_~]/g, "")
+    .replace(/<\/?[^>]+>/g, "")
+    .trim();
+}
+
+function slugify(input: string) {
+  const normalized = input
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+  return normalized || "section";
+}
+
+function buildTocAndBlockIds(contentBlocks: ContentBlock[]) {
+  const tocEntries: TocEntry[] = [];
+  const blockHeadingLineMaps: Array<Map<number, string>> = [];
+  const slugCounts = new Map<string, number>();
+
+  contentBlocks.forEach((block) => {
+    if (block.type !== "markdown") {
+      blockHeadingLineMaps.push(new Map());
+      return;
+    }
+
+    const blockLineMap = new Map<number, string>();
+    block.content.split(/\r?\n/).forEach((line, index) => {
+      const match = line.match(TOC_HEADING_PATTERN);
+      if (!match) return;
+      const level = match[1].length;
+      const text = stripMarkdown(match[2]);
+      if (!text) return;
+      const base = slugify(text);
+      const count = slugCounts.get(base) ?? 0;
+      const id = count ? `${base}-${count + 1}` : base;
+      slugCounts.set(base, count + 1);
+      tocEntries.push({ id, text, level });
+      blockLineMap.set(index + 1, id);
+    });
+
+    blockHeadingLineMaps.push(blockLineMap);
+  });
+
+  return { tocEntries, blockHeadingLineMaps };
+}
+
+type HeadingTag = "h2" | "h3" | "h4";
+
+function createHeadingRenderer(level: 2 | 3 | 4, headingLineMap: Map<number, string>) {
+  return ({
+    node,
+    className,
+    children,
+    ...props
+  }: {
+    node?: unknown;
+    className?: string;
+    children?: ReactNode;
+  } & ComponentPropsWithoutRef<HeadingTag>) => {
+    const line = (node as { position?: { start?: { line?: number } } })?.position?.start?.line;
+    const id = typeof line === "number" ? headingLineMap.get(line) : undefined;
+    const Tag = `h${level}` as HeadingTag;
+    const mergedClassName = ["scroll-mt-24", className].filter(Boolean).join(" ");
+
+    return (
+      <Tag id={id} className={mergedClassName} {...props}>
+        {children}
+      </Tag>
+    );
+  };
+}
+
+function createMarkdownComponents(headingLineMap: Map<number, string>) {
+  return {
+    a: ({
+      href,
+      children,
+      node,
+      ...props
+    }: {
+      href?: string;
+      children?: ReactNode;
+      node?: unknown;
+    } & ComponentPropsWithoutRef<"a">) => {
+      const url = href || "";
+      const isAffiliate =
+        /(?:^https?:\/\/)?(?:www\.)?(shopee\.ph|s\.shopee\.ph|shope\.ee|tiktok\.com|tiktok\.shop)/i.test(
+          url
+        );
+      const isExternal = /^https?:\/\//i.test(url) && !url.includes("sulitfinds.com");
+
+      if (isAffiliate) {
+        return <AffiliateLink href={url}>{children}</AffiliateLink>;
+      }
+
+      if (isExternal) {
+        return (
+          <a
+            href={url}
+            className="link"
+            target="_blank"
+            rel="noopener noreferrer"
+            {...props}
+          >
+            {children}
+          </a>
+        );
+      }
+
+      return (
+        <a
+          href={url}
+          className="link"
+          {...props}
+        >
+          {children}
+        </a>
+      );
+    },
+    h2: createHeadingRenderer(2, headingLineMap)
+  };
 }

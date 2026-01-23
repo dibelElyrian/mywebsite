@@ -35,6 +35,7 @@ export default function About() {
           <li>We prioritize reader value over affiliate links or product pushing.</li>
           <li>We research thoroughly using specs, reviews, and local context.</li>
           <li>We do not claim personal testing unless explicitly stated.</li>
+          <li>Always verify listings, seller ratings, and return policies before buying.</li>
           <li>We update posts when information changes or better options appear.</li>
         </ul>
       </section>

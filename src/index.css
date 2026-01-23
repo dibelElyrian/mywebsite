@@ -12,6 +12,8 @@
   --color-accent: #f4a42b;
   --color-accent-2: #e86d5b;
   --color-link: #226f9c;
+  --color-link-visited: #8b4f2a;
+  --color-cta-visited: #d98b3f;
   --color-on-accent: #1b1c22;
 }
 
@@ -24,6 +26,8 @@
   --color-accent: #f1a23a;
   --color-accent-2: #ef7b67;
   --color-link: #7db6e1;
+  --color-link-visited: #d6a16f;
+  --color-cta-visited: #c97a42;
   --color-on-accent: #1b1c22;
 }
 
@@ -65,6 +69,14 @@ body {
   .btn-primary:active {
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 0 var(--color-border);
+  }
+
+  .btn-primary:visited {
+    background-color: var(--color-cta-visited);
+  }
+
+  .btn-primary:visited:hover {
+    background-color: var(--color-accent);
   }
 
   .btn-secondary {
@@ -111,10 +123,30 @@ body {
     color: var(--color-accent-2);
   }
 
+  .link:visited {
+    color: var(--color-link-visited);
+    text-decoration-color: var(--color-link-visited);
+  }
+
+  .link:visited:hover {
+    color: var(--color-accent-2);
+    text-decoration-color: var(--color-accent-2);
+  }
+
   .link-muted {
     color: var(--color-muted);
     text-decoration: underline;
     text-underline-offset: 4px;
+  }
+
+  .link-muted:visited {
+    color: var(--color-link-visited);
+    text-decoration-color: var(--color-link-visited);
+  }
+
+  .link-muted:visited:hover {
+    color: var(--color-accent-2);
+    text-decoration-color: var(--color-accent-2);
   }
 
   .chip {
@@ -124,10 +156,20 @@ body {
     color: var(--color-text);
   }
 
+  .chip:visited {
+    color: var(--color-link-visited);
+    border-color: var(--color-link-visited);
+  }
+
   .tag {
     @apply inline-flex items-center rounded-full border-2 px-3 py-1 text-xs font-semibold;
     border-color: color-mix(in srgb, var(--color-accent) 70%, var(--color-border) 30%);
     color: var(--color-accent-2);
+  }
+
+  .tag:visited {
+    color: var(--color-link-visited);
+    border-color: var(--color-link-visited);
   }
 
   .input {
@@ -171,4 +213,14 @@ body {
   color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.prose a:visited {
+  color: var(--color-link-visited);
+  text-decoration-color: var(--color-link-visited);
+}
+
+.prose a:visited:hover {
+  color: var(--color-accent-2);
+  text-decoration-color: var(--color-accent-2);
 }
