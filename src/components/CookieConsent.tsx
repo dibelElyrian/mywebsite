@@ -1,29 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ADSENSE_CLIENT_ID, GA_MEASUREMENT_ID } from "../lib/site";
-import { CONSENT_KEY, trackPageView } from "../lib/analytics";
 
+const CONSENT_KEY = "sulitfinds_cookie_consent";
 const GA_SCRIPT_ID = "ga-script";
 const ADSENSE_SCRIPT_ID = "adsense-script";
 
-function loadScript(
-  src: string,
-  id: string,
-  attrs: Record<string, string> = {},
-  onLoad?: () => void
-): void {
-  if (document.getElementById(id)) {
-    // Script already exists, call onLoad immediately if script is loaded
-    const existing = document.getElementById(id) as HTMLScriptElement | null;
-    if (existing && onLoad) {
-      if (existing.dataset.loaded === "true") {
-        onLoad();
-      } else {
-        existing.addEventListener("load", onLoad);
-      }
-    }
-    return;
-  }
+type GtagWindow = Window & {
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
+};
+
+function loadScript(src: string, id: string, attrs: Record<string, string> = {}) {
+  if (document.getElementById(id)) return;
   const script = document.createElement("script");
   script.id = id;
   script.async = true;
@@ -31,49 +20,24 @@ function loadScript(
   Object.entries(attrs).forEach(([key, value]) => {
     script.setAttribute(key, value);
   });
-  if (onLoad) {
-    script.addEventListener("load", () => {
-      script.dataset.loaded = "true";
-      onLoad();
-    });
-  }
   document.head.appendChild(script);
-}
-
-function initializeGtag() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
-  }
-  window.gtag = window.gtag || gtag;
 }
 
 function enableAnalytics() {
   if (!GA_MEASUREMENT_ID) return;
-
-  // Initialize dataLayer and gtag function first
-  initializeGtag();
-
-  // Update consent to granted
-  window.gtag!("consent", "default", {
+  const win = window as GtagWindow;
+  win.dataLayer = win.dataLayer || [];
+  function gtag(...args: unknown[]) {
+    win.dataLayer?.push(args);
+  }
+  win.gtag = win.gtag || gtag;
+  win.gtag("consent", "update", {
     analytics_storage: "granted",
     ad_storage: "granted"
   });
-
-  // Push initial commands to dataLayer (they queue up until script loads)
-  window.gtag!("js", new Date());
-  window.gtag!("config", GA_MEASUREMENT_ID, { send_page_view: false });
-
-  // Load the gtag.js script and track page view once it's ready
-  loadScript(
-    `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
-    GA_SCRIPT_ID,
-    {},
-    () => {
-      // Script is now loaded, track the initial page view
-      trackPageView("consent");
-    }
-  );
+  win.gtag("js", new Date());
+  win.gtag("config", GA_MEASUREMENT_ID);
+  loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
 }
 
 function enableAds() {
@@ -116,8 +80,9 @@ export default function CookieConsent() {
     localStorage.setItem(CONSENT_KEY, "declined");
     setShowBanner(false);
     // Optionally disable Google Analytics
-    if (window.gtag) {
-      window.gtag("consent", "update", {
+    const win = window as GtagWindow;
+    if (win.gtag) {
+      win.gtag("consent", "update", {
         analytics_storage: "denied",
         ad_storage: "denied"
       });
