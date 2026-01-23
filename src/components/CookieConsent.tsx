@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ADSENSE_CLIENT_ID, GA_MEASUREMENT_ID } from "../lib/site";
+import { CONSENT_KEY, trackPageView } from "../lib/analytics";
 
-const CONSENT_KEY = "sulitfinds_cookie_consent";
 const GA_SCRIPT_ID = "ga-script";
 const ADSENSE_SCRIPT_ID = "adsense-script";
-
-type GtagWindow = Window & {
-  dataLayer?: unknown[];
-  gtag?: (...args: unknown[]) => void;
-};
 
 function loadScript(src: string, id: string, attrs: Record<string, string> = {}) {
   if (document.getElementById(id)) return;
@@ -25,19 +20,19 @@ function loadScript(src: string, id: string, attrs: Record<string, string> = {})
 
 function enableAnalytics() {
   if (!GA_MEASUREMENT_ID) return;
-  const win = window as GtagWindow;
-  win.dataLayer = win.dataLayer || [];
+  window.dataLayer = window.dataLayer || [];
   function gtag(...args: unknown[]) {
-    win.dataLayer?.push(args);
+    window.dataLayer?.push(args);
   }
-  win.gtag = win.gtag || gtag;
-  win.gtag("consent", "update", {
+  window.gtag = window.gtag || gtag;
+  window.gtag("consent", "update", {
     analytics_storage: "granted",
     ad_storage: "granted"
   });
-  win.gtag("js", new Date());
-  win.gtag("config", GA_MEASUREMENT_ID);
+  window.gtag("js", new Date());
+  window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
+  trackPageView("consent");
 }
 
 function enableAds() {
@@ -80,9 +75,8 @@ export default function CookieConsent() {
     localStorage.setItem(CONSENT_KEY, "declined");
     setShowBanner(false);
     // Optionally disable Google Analytics
-    const win = window as GtagWindow;
-    if (win.gtag) {
-      win.gtag("consent", "update", {
+    if (window.gtag) {
+      window.gtag("consent", "update", {
         analytics_storage: "denied",
         ad_storage: "denied"
       });
