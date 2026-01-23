@@ -74,10 +74,21 @@ export function trackPageView(reason?: string): void {
     console.info("[GA] page_view", { reason, pagePath });
   }
 
+  const startedAt = debugMode ? Date.now() : 0;
+  const debugCallback = debugMode
+    ? () => {
+        const elapsedMs = Date.now() - startedAt;
+        console.info("[GA] page_view callback", { reason, pagePath, elapsedMs });
+      }
+    : undefined;
+
   window.gtag("event", "page_view", {
+    send_to: GA_MEASUREMENT_ID,
     page_path: pagePath,
     page_location: window.location.href,
     page_title: document.title,
-    ...(debugMode ? { debug_mode: true } : {})
+    ...(debugMode
+      ? { debug_mode: true, event_callback: debugCallback, event_timeout: 2000 }
+      : {})
   });
 }
