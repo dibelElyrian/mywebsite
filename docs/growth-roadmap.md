@@ -206,6 +206,44 @@ Copy this for each week:
 
 ---
 
+## 6-Month Content Checklist (2 posts per week)
+
+Use this checklist to keep the site running for 6 months with minimal code changes.
+
+### Per-Post Checklist
+- [ ] Topic validated with keyword research and no overlap in `docs/topic-registry.md`
+- [ ] Content tier chosen (Quick, Cluster, or Pillar) with a clear outline
+- [ ] Include at least 1 affiliate link from the batch CSV; if no relevant product exists, get approval to publish without one
+- [ ] Add 2 internal links to related posts
+- [ ] Cover image exists in `/public/images/` (JPG or PNG, 16:9 ratio)
+- [ ] Frontmatter complete: title, slug, date, category, tags, description, coverImage
+- [ ] No personal testing claims; content is original and reader-first
+- [ ] Add "details may change" disclaimer where listings are referenced
+- [ ] Add Affiliate Link Audit section when links are used (expected for each post unless exception)
+- [ ] Update `docs/topic-registry.md` and regenerate sitemap on the next build
+
+### Weekly Checklist (2 posts)
+- [ ] Publish 2 posts
+- [ ] Create 2 cover images
+- [ ] Update topic registry entries and verify internal links
+- [ ] Check Analytics and affiliate clicks
+
+### Monthly Checklist
+- [ ] Refresh 2-4 older posts (intro clarity, internal links, product relevance)
+- [ ] Review top 10 posts in Analytics for rising topics and CTR changes
+- [ ] Fix broken affiliate links or out of stock items (replace or remove)
+- [ ] Check Search Console for indexing or crawl errors
+
+### 6-Month Targets
+- [ ] Month 1: +8 posts
+- [ ] Month 2: +16 posts total
+- [ ] Month 3: +24 posts total
+- [ ] Month 4: +32 posts total
+- [ ] Month 5: +40 posts total
+- [ ] Month 6: +48 posts total
+
+---
+
 ## How to Ask Me for Help
 
 Just say:

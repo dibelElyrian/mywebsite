@@ -5,6 +5,8 @@ import CategoryFilter from "../components/CategoryFilter";
 import PostCard from "../components/PostCard";
 import { getAllPosts, getCategories, getTags } from "../lib/posts";
 
+const TAG_LIMIT = 12;
+
 export default function BlogIndex() {
   const posts = getAllPosts();
   const categories = getCategories(posts);
@@ -15,6 +17,32 @@ export default function BlogIndex() {
   );
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [selectedTag, setSelectedTag] = useState(searchParams.get("tag") || "All");
+  const [showAllTags, setShowAllTags] = useState(false);
+
+  const sortedTags = useMemo(() => {
+    const counts = new Map<string, number>();
+    posts.forEach((post) => {
+      post.tags.forEach((tag) => {
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      });
+    });
+
+    return Array.from(counts.entries())
+      .sort((a, b) => {
+        if (b[1] !== a[1]) return b[1] - a[1];
+        return a[0].localeCompare(b[0]);
+      })
+      .map(([tag]) => tag);
+  }, [posts]);
+
+  const visibleTags = useMemo(() => {
+    if (showAllTags) return sortedTags;
+    const limited = sortedTags.slice(0, TAG_LIMIT);
+    if (selectedTag !== "All" && !limited.includes(selectedTag)) {
+      return [...limited, selectedTag];
+    }
+    return limited;
+  }, [showAllTags, sortedTags, selectedTag]);
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
@@ -72,31 +100,36 @@ export default function BlogIndex() {
         canonicalPath="/blog"
       />
 
-      <header className="space-y-4">
+      <header className="space-y-5">
         <h1 className="text-3xl font-bold text-text">Blog</h1>
         <p className="text-base text-muted">
           Practical guides, budget tips, and helpful answers for everyday Filipino questions.
         </p>
-        <div className="flex flex-wrap items-center gap-4">
-          <CategoryFilter
-            categories={categories}
-            selected={selectedCategory}
-            onChange={handleCategoryChange}
-          />
-          <div className="flex flex-1 items-center gap-3">
-            <label
-              htmlFor="search"
-              className="text-sm font-medium text-muted"
-            >
-              Search
-            </label>
-            <input
-              id="search"
-              value={query}
-              onChange={(event) => handleQueryChange(event.target.value)}
-              placeholder="Search posts, tags, or keywords"
-              className="input max-w-sm"
+        <div className="space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+            Filters
+          </p>
+          <div className="grid gap-4 sm:grid-cols-[minmax(180px,220px)_1fr] sm:items-end">
+            <CategoryFilter
+              categories={categories}
+              selected={selectedCategory}
+              onChange={handleCategoryChange}
             />
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="search"
+                className="text-sm font-medium text-muted"
+              >
+                Search
+              </label>
+              <input
+                id="search"
+                value={query}
+                onChange={(event) => handleQueryChange(event.target.value)}
+                placeholder="Search posts, tags, or keywords"
+                className="input w-full"
+              />
+            </div>
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -111,7 +144,7 @@ export default function BlogIndex() {
           >
             All tags
           </button>
-          {tags.map((tag) => (
+          {visibleTags.map((tag) => (
             <button
               key={tag}
               type="button"
@@ -125,6 +158,21 @@ export default function BlogIndex() {
               #{tag}
             </button>
           ))}
+          {sortedTags.length > TAG_LIMIT ? (
+            <button
+              type="button"
+              onClick={() => setShowAllTags((prev) => !prev)}
+              className={`chip transition ${
+                showAllTags
+                  ? "border-[color:var(--color-accent)] text-[color:var(--color-accent-2)]"
+                  : "hover:border-[color:var(--color-accent)]"
+              }`}
+            >
+              {showAllTags
+                ? "Show fewer tags"
+                : `Show all tags (${sortedTags.length})`}
+            </button>
+          ) : null}
         </div>
       </header>
 

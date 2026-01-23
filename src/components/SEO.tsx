@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useHeadCollector } from "../lib/head";
 import { DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "../lib/site";
 
 type SEOProps = {
@@ -29,6 +30,23 @@ function setLinkTag(rel: string, href: string) {
   element.setAttribute("href", href);
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function metaTag(attr: "name" | "property", key: string, value: string) {
+  return `<meta ${attr}="${escapeHtml(key)}" content="${escapeHtml(value)}" />`;
+}
+
+function linkTag(rel: string, href: string) {
+  return `<link rel="${escapeHtml(rel)}" href="${escapeHtml(href)}" />`;
+}
+
 export default function SEO({
   title,
   description = DEFAULT_DESCRIPTION,
@@ -36,6 +54,8 @@ export default function SEO({
   image = DEFAULT_OG_IMAGE,
   type = "website"
 }: SEOProps) {
+  const headCollector = useHeadCollector();
+
   useEffect(() => {
     const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
     const canonicalUrl = `${SITE_URL}${canonicalPath}`;
@@ -43,6 +63,7 @@ export default function SEO({
 
     document.title = pageTitle;
     setMetaTag("description", description, "name");
+    setMetaTag("og:site_name", SITE_NAME, "property");
     setMetaTag("og:title", pageTitle, "property");
     setMetaTag("og:description", description, "property");
     setMetaTag("og:type", type, "property");
@@ -54,6 +75,26 @@ export default function SEO({
     setMetaTag("twitter:image", imageUrl, "name");
     setLinkTag("canonical", canonicalUrl);
   }, [title, description, canonicalPath, image, type]);
+
+  if (headCollector) {
+    const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+    const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+    const imageUrl = image?.startsWith("http") ? image : `${SITE_URL}${image}`;
+
+    headCollector.add(`<title>${escapeHtml(pageTitle)}</title>`);
+    headCollector.add(metaTag("name", "description", description));
+    headCollector.add(metaTag("property", "og:site_name", SITE_NAME));
+    headCollector.add(metaTag("property", "og:title", pageTitle));
+    headCollector.add(metaTag("property", "og:description", description));
+    headCollector.add(metaTag("property", "og:type", type));
+    headCollector.add(metaTag("property", "og:url", canonicalUrl));
+    headCollector.add(metaTag("property", "og:image", imageUrl));
+    headCollector.add(metaTag("name", "twitter:card", "summary_large_image"));
+    headCollector.add(metaTag("name", "twitter:title", pageTitle));
+    headCollector.add(metaTag("name", "twitter:description", description));
+    headCollector.add(metaTag("name", "twitter:image", imageUrl));
+    headCollector.add(linkTag("canonical", canonicalUrl));
+  }
 
   return null;
 }

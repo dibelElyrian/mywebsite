@@ -6,9 +6,9 @@ Project context:
 - Website name: SulitFinds
 - Domain: https://sulitfinds.com
 - Niche: Practical living guides for budget-conscious Filipinos
-- Purpose: Quality content blog that answers trending Filipino questions, with optional affiliate monetization
+- Purpose: Quality content blog that answers trending Filipino questions, with affiliate monetization that stays reader-first
 - Primary goal: Meaningful traffic through valuable, reader-first content
-- Secondary goal: Monetization via Google AdSense and affiliate links (when naturally relevant)
+- Secondary goal: Monetization via Google AdSense and affiliate links (target at least 1 affiliate link per post, only when genuinely helpful; if no relevant product exists, get explicit user approval to publish without a link)
 - Audience: Filipino readers seeking practical tips, guides, and budget-smart solutions
 
 Current integrations (as of January 2026):
@@ -27,6 +27,7 @@ Global rules:
 - Do not use em dashes or en dashes; use hyphen-minus or commas and periods instead
 - Always explain architectural decisions briefly when introducing new files
 - After every set of code changes (each PR-sized chunk), scan the entire project for possible sensitive data leaks and fix them before concluding.
+- Do NOT push to git automatically; always wait for user confirmation before pushing.
 
 Copyright and asset usage policy:
 - Do not use copyrighted images, text, or media without explicit permission.
@@ -87,7 +88,7 @@ Content philosophy:
 - Reader-first: Every post must provide genuine value before any monetization
 - Quality over quantity: Fewer excellent posts beat many mediocre ones
 - Answer real questions: Target trending Filipino search queries
-- Natural affiliate integration: Only include product links when genuinely helpful
+- Natural affiliate integration: Include at least 1 affiliate link per post in a recommendation section, only when genuinely helpful
 
 Affiliate link rules:
 - Use Offer Link from /public/batchlinks/*.csv as the affiliate URL when available
@@ -96,8 +97,8 @@ Affiliate link rules:
 - If a product is not in the batch CSV but exists on Shopee:
   - Agent must ask user for input (provide product name and request link)
   - User will provide the correct affiliate link or skip the product
-- If content does not require product recommendations, continue without asking
-- Affiliate links are OPTIONAL, not mandatory for every post
+- If content does not require product recommendations, ask the user to approve publishing without an affiliate link or provide a suitable product
+- Affiliate links are REQUIRED per post unless the user explicitly approves an exception
 
 Blog post affiliate disclosure:
 - Do NOT add per-post affiliate disclosures (removed per user preference)

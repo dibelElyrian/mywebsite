@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "../lib/site";
 
 export default function About() {
   return (
@@ -55,9 +56,24 @@ export default function About() {
       <section className="space-y-4">
         <h2 className="text-xl font-semibold text-text">Contact</h2>
         <p className="text-base leading-relaxed text-muted">
-          Have questions, suggestions, or feedback? Reach out through our social channels 
-          or check back as we add more ways to connect.
+          Have questions, suggestions, or feedback? Reach out using the links below.
         </p>
+        <div className="flex flex-wrap items-center gap-4 text-sm">
+          {SOCIAL_LINKS.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="link">
+            {CONTACT_EMAIL}
+          </a>
+        </div>
       </section>
     </div>
   );

@@ -21,9 +21,9 @@ This roadmap outlines monetization options for SulitFinds, ordered by difficulty
 ## Secondary: Affiliate links (Shopee/TikTok)
 **Difficulty:** Easy
 
-**Setup effort:** Use affiliate links only when products genuinely help the reader; batch CSV is source of truth.
+**Setup effort:** Include at least 1 affiliate link per post, but only when products genuinely help the reader; batch CSV is source of truth. If no relevant product exists, request an exception.
 
-**When to start:** Only when content naturally includes product recommendations.
+**When to start:** Start now - plan each post to include a small, genuinely helpful recommendation section.
 
 **Risks/pitfalls:**
 - Over-linking can hurt trust and reduce readability.
@@ -33,7 +33,7 @@ This roadmap outlines monetization options for SulitFinds, ordered by difficulty
 **Best-fit content types:**
 - Buying guides where products genuinely help
 - Comparison posts where readers need to make a purchase decision
-- NOT how-to guides or tips that don't need products
+- How-to guides only when a genuinely helpful product can be recommended, otherwise request an exception
 
 ## 3) Sponsored content
 **Difficulty:** Medium

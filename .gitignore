@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -453,6 +459,15 @@ FodyWeavers.xsd
 tsconfig.tsbuildinfo
 *.log
 !*.log.md
+/dist/
+/dist-ssr/
 
 # Personal reference docs
 docs/blog-income-expectations.md
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

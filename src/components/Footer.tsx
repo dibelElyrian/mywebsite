@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "../lib/site";
 
 export default function Footer() {
   return (
@@ -15,6 +16,29 @@ export default function Footer() {
             privacy policy
           </Link>
           .
+        </span>
+        <span>
+          Follow us:{" "}
+          {SOCIAL_LINKS.map((item, index) => (
+            <span key={item.label}>
+              <a
+                href={item.href}
+                className="link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.label}
+              </a>
+              {index < SOCIAL_LINKS.length - 1 ? ", " : ""}
+            </span>
+          ))}
+          .
+        </span>
+        <span>
+          Contact:{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="link">
+            {CONTACT_EMAIL}
+          </a>
         </span>
       </div>
     </footer>

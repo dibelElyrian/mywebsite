@@ -68,7 +68,7 @@ For each proposed topic, provide:
 - Content tier: Pillar (2,000+ words), Cluster (900-1,500 words), or Quick (500-900 words)
 - Volume tier: High, Medium, Low, or Emerging
 - Competition notes: Brief observation on existing content quality
-- Monetization fit: Natural affiliate opportunity, AdSense only, or none
+- Monetization fit: Natural affiliate opportunity (preferred). If none, flag for user-approved exception.
 
 Pre-generation requirement:
 - Before writing any new post, keyword research is MANDATORY
@@ -80,7 +80,7 @@ Topic validation checklist:
 2. Can we provide genuine value? (required)
 3. Is this topic already covered in topic-registry.md? (check for overlap)
 4. What content tier is appropriate?
-5. Is there a natural affiliate opportunity? (optional, not required)
+5. Is there a natural affiliate opportunity? (required unless user approves an exception)
 
 Failure handling:
 - If no quality topics are found, do not force content generation

@@ -1,6 +1,6 @@
 ---
 name: ai-blog-generation
-description: Create high-quality, reader-first blog posts for SulitFinds that answer trending Filipino questions with optional affiliate monetization.
+description: Create high-quality, reader-first blog posts for SulitFinds that answer trending Filipino questions with affiliate monetization (at least 1 affiliate link per post unless approved exception).
 ---
 
 Use this skill when generating new blog posts or refreshing existing content.
@@ -9,7 +9,7 @@ Core philosophy:
 - Reader-first: Every post must provide genuine value before any monetization consideration
 - Quality over quantity: Fewer excellent posts beat many mediocre ones
 - Answer real questions: Target what Filipinos are actually searching for
-- Natural monetization: Affiliate links only when genuinely helpful to the reader
+- Natural monetization: Include at least 1 affiliate link per post, only when genuinely helpful to the reader
 
 Content tiers (choose based on topic depth):
 - Pillar: Comprehensive guides (2,000+ words) for high-value topics
@@ -24,11 +24,10 @@ Pre-generation requirements (MANDATORY):
 
 Workflow options:
 
-OPTION A: Content without product recommendations
-- For how-to guides, explainers, tips, and informational content
-- Skip product planning entirely
-- Proceed directly to content generation
-- No affiliate links required
+OPTION A: Content without product recommendations (exception only)
+- For how-to guides, explainers, tips, and informational content where no product is genuinely helpful
+- Ask the user to explicitly approve publishing without affiliate links before proceeding
+- If the user wants at least 1 affiliate link, switch to Option B and include a small, genuinely helpful recommendation section
 
 OPTION B: Content with product recommendations (two-phase workflow)
 - Phase 1: Product Plan (no blog content yet)
@@ -58,7 +57,7 @@ Batch links input mode (when /public/batchlinks/*.csv exists):
 - Use Product Link only if Offer Link is missing
 - Select products that genuinely help the reader (not just to use the links)
 - Prioritize unused items (where Used In Blog is not yes)
-- If no relevant products exist in batch: Ask user for input or proceed without affiliate links
+- If no relevant products exist in batch: Ask user for input. If none are suitable, ask for approval to publish without an affiliate link.
 
 Affiliate link request workflow:
 - When a recommended product is NOT in the batch CSV but exists on Shopee:
@@ -66,8 +65,7 @@ Affiliate link request workflow:
   - Ask: "This product is not in the batch CSV. Please provide the affiliate link, or type SKIP to continue without it."
   - Wait for user input before proceeding
 - When content does not need product recommendations:
-  - Do NOT ask for affiliate links
-  - Proceed with content generation
+  - Ask the user to approve publishing without an affiliate link or provide a suitable product to recommend
 
 Batch usage tracking (when affiliate links are used):
 - After publishing, mark used products in the batch CSV
@@ -130,7 +128,7 @@ Content length rules:
 - Do not pad with fluff; expand with useful sections if needed
 - Word count for validation only; do not print in content
 
-Affiliate integration rules (when applicable):
+Affiliate integration rules (required per post unless user-approved exception):
 - Max 3-6 affiliate links per 1,000 words
 - Link each product only once per article
 - Product name text should be the hyperlink
@@ -152,7 +150,7 @@ Output requirements:
 - Structured frontmatter: title, description, slug, date, category, tags
 - Clear introduction, scannable headings, concise summaries
 - Internal links to related posts when available
-- If affiliate links used: Affiliate Link Audit (non-publishable) listing product, URL, section
+- Include Affiliate Link Audit (non-publishable) listing product, URL, section when links are used
 - Accurate dates with "may change" disclaimer where applicable
 
 Cover image requirements:
@@ -164,10 +162,11 @@ Cover image requirements:
 
 New post checklist (after generation):
 1. Verify content provides genuine value to the reader
-2. Confirm affiliate links use Offer Link from batch CSV (if applicable)
-3. Update topic-registry.md with new entries
-4. Run sitemap regeneration: npm run generate:sitemap
-5. Run sensitive data scan (required by copilot-instructions.md)
+2. Confirm at least 1 affiliate link is included, or the user approved an exception
+3. Confirm affiliate links use Offer Link from batch CSV (if applicable)
+4. Update topic-registry.md with new entries
+5. Run sitemap regeneration: npm run generate:sitemap
+6. Run sensitive data scan (required by copilot-instructions.md)
 
 BEFORE PUSHING - Cover Image Reminder (MANDATORY):
 - Stop and remind user to create cover images for all new posts
@@ -204,6 +203,7 @@ AFTER PUSHING - Pinterest Pin Reminder (MANDATORY):
 Quality checks before publishing:
 - Does the post answer the reader's question? (required)
 - Would this post be valuable even without affiliate links? (required)
+- Does the post include at least 1 affiliate link, or is there explicit approval to publish without one? (required)
 - Clear introduction and scannable headings?
 - Accurate information with sources?
 - Unique title and compelling meta description?
