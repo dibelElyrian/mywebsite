@@ -177,8 +177,8 @@ BEFORE PUSHING - Cover Image Reminder (MANDATORY):
   - Specify 16:9 ratio in the prompt
 - Wait for user confirmation that images are ready before proceeding to push
 
-AFTER PUSHING - Pinterest Pin Reminder (MANDATORY):
-- After successful push, remind user to create Pinterest pins
+Pinterest Pin Reminder (MANDATORY):
+- After generating a new post and receiving affiliate links, remind the user to create Pinterest pins
 - For each new post, provide:
   - Pin title: Post title
   - Pin description: Post meta description
