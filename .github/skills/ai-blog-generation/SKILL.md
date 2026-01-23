@@ -137,10 +137,16 @@ Output requirements:
 - Include Affiliate Link Audit (non-publishable) listing product, URL, section when links are used
 - Accurate dates with "may change" disclaimer where applicable
 - Provide a Facebook post script after the blog content:
-  - 2-4 sentences summarizing the post
-  - Include a short safety reminder (do your own research, verify sellers)
-  - Include a liability note (purchases are your responsibility)
-  - End with "Read more: [PASTE LINK]"
+  - Use the format below for readability:
+    ```
+    [Post Title]
+
+    [2-4 sentence summary]
+
+    Safety reminder: Do your own research and verify seller ratings and reviews.
+    Liability note: Purchases are your responsibility.
+    Read more: [PASTE LINK]
+    ```
 
 Cover image requirements:
 - Every post must have a cover image in /public/images/
