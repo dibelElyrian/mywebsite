@@ -6,8 +6,24 @@ import { CONSENT_KEY, trackPageView } from "../lib/analytics";
 const GA_SCRIPT_ID = "ga-script";
 const ADSENSE_SCRIPT_ID = "adsense-script";
 
-function loadScript(src: string, id: string, attrs: Record<string, string> = {}) {
-  if (document.getElementById(id)) return;
+function loadScript(
+  src: string,
+  id: string,
+  attrs: Record<string, string> = {},
+  onLoad?: () => void
+): void {
+  if (document.getElementById(id)) {
+    // Script already exists, call onLoad immediately if script is loaded
+    const existing = document.getElementById(id) as HTMLScriptElement | null;
+    if (existing && onLoad) {
+      if (existing.dataset.loaded === "true") {
+        onLoad();
+      } else {
+        existing.addEventListener("load", onLoad);
+      }
+    }
+    return;
+  }
   const script = document.createElement("script");
   script.id = id;
   script.async = true;
@@ -15,24 +31,49 @@ function loadScript(src: string, id: string, attrs: Record<string, string> = {})
   Object.entries(attrs).forEach(([key, value]) => {
     script.setAttribute(key, value);
   });
+  if (onLoad) {
+    script.addEventListener("load", () => {
+      script.dataset.loaded = "true";
+      onLoad();
+    });
+  }
   document.head.appendChild(script);
 }
 
-function enableAnalytics() {
-  if (!GA_MEASUREMENT_ID) return;
+function initializeGtag() {
   window.dataLayer = window.dataLayer || [];
   function gtag(...args: unknown[]) {
     window.dataLayer?.push(args);
   }
   window.gtag = window.gtag || gtag;
-  window.gtag("consent", "update", {
+}
+
+function enableAnalytics() {
+  if (!GA_MEASUREMENT_ID) return;
+
+  // Initialize dataLayer and gtag function first
+  initializeGtag();
+
+  // Update consent to granted
+  window.gtag!("consent", "default", {
     analytics_storage: "granted",
     ad_storage: "granted"
   });
-  window.gtag("js", new Date());
-  window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
-  loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
-  trackPageView("consent");
+
+  // Push initial commands to dataLayer (they queue up until script loads)
+  window.gtag!("js", new Date());
+  window.gtag!("config", GA_MEASUREMENT_ID, { send_page_view: false });
+
+  // Load the gtag.js script and track page view once it's ready
+  loadScript(
+    `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+    GA_SCRIPT_ID,
+    {},
+    () => {
+      // Script is now loaded, track the initial page view
+      trackPageView("consent");
+    }
+  );
 }
 
 function enableAds() {

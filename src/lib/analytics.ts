@@ -41,6 +41,10 @@ function getCurrentPath(): string {
   return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
+function isGtagReady(): boolean {
+  return typeof window.gtag === "function" && Array.isArray(window.dataLayer);
+}
+
 export function trackPageView(reason?: string): void {
   if (!isBrowser()) return;
   if (!GA_MEASUREMENT_ID) return;
@@ -54,7 +58,7 @@ export function trackPageView(reason?: string): void {
     return;
   }
 
-  if (!window.gtag) {
+  if (!isGtagReady()) {
     if (debugMode) {
       console.info("[GA] gtag not ready", { reason });
     }
@@ -82,7 +86,7 @@ export function trackPageView(reason?: string): void {
       }
     : undefined;
 
-  window.gtag("event", "page_view", {
+  window.gtag!("event", "page_view", {
     send_to: GA_MEASUREMENT_ID,
     page_path: pagePath,
     page_location: window.location.href,
