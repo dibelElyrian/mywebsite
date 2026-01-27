@@ -55,7 +55,8 @@ Google Analytics 4 (GA4) implementation:
   4. Call gtag("config", "G-MEASUREMENT_ID")
   5. Load gtag.js script asynchronously
 - The collect request (sending data to GA) only works when dataLayer contains Arguments objects
-- Do NOT add AnalyticsTracker components or manual page view tracking - let GA4 handle it automatically
+- Prefer GA4 automatic page_view tracking, but for SPA consent-gated setups where auto events fail,
+  disable `send_page_view` in the config and send manual `page_view` events on route changes after consent.
 
 Per-post affiliate disclosure:
 - NOT required (removed per user preference)

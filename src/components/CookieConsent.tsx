@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ADSENSE_CLIENT_ID, GA_MEASUREMENT_ID } from "../lib/site";
 
 const CONSENT_KEY = "sulitfinds_cookie_consent";
@@ -10,6 +10,8 @@ type GtagWindow = Window & {
   dataLayer?: unknown[];
   gtag?: (...args: unknown[]) => void;
 };
+
+type ConsentStatus = "accepted" | "declined" | null;
 
 function loadScript(src: string, id: string, attrs: Record<string, string> = {}) {
   if (document.getElementById(id)) return;
@@ -41,7 +43,7 @@ function enableAnalytics() {
     ad_storage: "granted"
   });
   gtagFn("js", new Date());
-  gtagFn("config", GA_MEASUREMENT_ID);
+  gtagFn("config", GA_MEASUREMENT_ID, { send_page_view: false });
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
 }
 
@@ -61,28 +63,52 @@ function enableTracking() {
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const [consent, setConsent] = useState<ConsentStatus>(null);
+  const location = useLocation();
+  const pagePath = useMemo(
+    () => `${location.pathname}${location.search}${location.hash}`,
+    [location]
+  );
 
   useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY);
-    if (consent === "accepted") {
+    const storedConsent = localStorage.getItem(CONSENT_KEY);
+    if (storedConsent === "accepted") {
+      setConsent("accepted");
       enableTracking();
       return;
     }
-    if (!consent) {
+    if (storedConsent === "declined") {
+      setConsent("declined");
+      return;
+    }
+    if (!storedConsent) {
       // Small delay to avoid layout shift on initial load
       const timer = setTimeout(() => setShowBanner(true), 1000);
       return () => clearTimeout(timer);
     }
   }, []);
 
+  useEffect(() => {
+    if (consent !== "accepted") return;
+    const win = window as GtagWindow;
+    if (!win.gtag) return;
+    win.gtag("event", "page_view", {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: pagePath
+    });
+  }, [consent, pagePath]);
+
   function handleAccept() {
     localStorage.setItem(CONSENT_KEY, "accepted");
+    setConsent("accepted");
     enableTracking();
     setShowBanner(false);
   }
 
 function handleDecline() {
   localStorage.setItem(CONSENT_KEY, "declined");
+  setConsent("declined");
   setShowBanner(false);
   // Optionally disable Google Analytics
   const win = window as GtagWindow;
