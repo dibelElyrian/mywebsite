@@ -12,6 +12,7 @@ export type Post = {
   tags: string[];
   description: string;
   coverImage?: string;
+  coverImageAlt?: string;
   content: string;
   readingTime: string;
 };
@@ -36,6 +37,7 @@ type Frontmatter = {
   tags?: string[];
   description?: string;
   coverImage?: string;
+  coverImageAlt?: string;
 };
 
 function parseValue(value: string) {
@@ -128,7 +130,8 @@ export function getAllPosts(): Post[] {
       category: data.category || "General",
       tags: Array.isArray(data.tags) ? data.tags : [],
       description: normalizedDescription,
-      coverImage: data.coverImage,
+        coverImage: data.coverImage,
+        coverImageAlt: data.coverImageAlt,
       content: normalizedContent,
       readingTime: label
     } as Post;

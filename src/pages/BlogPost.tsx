@@ -75,7 +75,7 @@ export default function BlogPost() {
           {post.coverImage ? (
             <img
               src={post.coverImage}
-              alt={post.title}
+              alt={post.coverImageAlt ?? post.title}
               className="h-72 w-full rounded-2xl object-cover"
               loading="lazy"
             />

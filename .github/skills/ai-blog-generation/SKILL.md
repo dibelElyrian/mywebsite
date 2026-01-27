@@ -134,6 +134,9 @@ Output requirements:
 - Structured frontmatter: title, description, slug, date, category, tags
 - Clear introduction, scannable headings, concise summaries
 - Internal links to related posts when available
+- When linking categories or tags, use archive URLs:
+  - /blog/category/[slug]/
+  - /blog/tag/[slug]/
 - Include Affiliate Link Audit (non-publishable) listing product, URL, section when links are used
 - Accurate dates with "may change" disclaimer where applicable
 - Provide a Facebook post script after the blog content:
@@ -160,7 +163,7 @@ New post checklist (after generation):
 2. Confirm 3 affiliate links are included (one per product), or the user approved a different count or exception
 3. Confirm affiliate links are user-provided
 4. Update topic-registry.md with new entries
-5. Run sitemap regeneration: npm run generate:sitemap
+5. Run build to regenerate sitemap/feed: npm run build
 6. Run sensitive data scan (required by copilot-instructions.md)
 7. Provide a Facebook post script for the new blog
 
@@ -182,7 +185,7 @@ Pinterest Pin Reminder (MANDATORY):
 - For each new post, provide:
   - Pin title: Post title
   - Pin description: Post meta description
-  - Pin URL: https://sulitfinds.com/blog/[slug]
+  - Pin URL: https://sulitfinds.com/blog/[slug]/
   - Board: "Budget Finds Philippines" (or relevant board)
   - Suggested hashtags: 5-6 relevant tags based on post category and keywords
 - Example output format:
