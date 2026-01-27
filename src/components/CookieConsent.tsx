@@ -32,13 +32,16 @@ function enableAnalytics() {
     // eslint-disable-next-line prefer-rest-params
     win.dataLayer?.push(arguments);
   }
-  win.gtag = win.gtag || (gtag as GtagWindow["gtag"]);
-  win.gtag("consent", "update", {
+  const gtagFn = (win.gtag || (gtag as GtagWindow["gtag"])) as NonNullable<
+    GtagWindow["gtag"]
+  >;
+  win.gtag = gtagFn;
+  gtagFn("consent", "update", {
     analytics_storage: "granted",
     ad_storage: "granted"
   });
-  win.gtag!("js", new Date());
-  win.gtag!("config", GA_MEASUREMENT_ID);
+  gtagFn("js", new Date());
+  gtagFn("config", GA_MEASUREMENT_ID);
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
 }
 

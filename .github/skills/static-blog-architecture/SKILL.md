@@ -12,3 +12,4 @@ Guidelines:
 - Keep the build static and predictable for Netlify deployments.
 - Provide real category/tag archive routes (not just query params) and include them in sitemap/prerender.
 - Align internal links and canonicals with the chosen trailing-slash style.
+- After changes, always run `npm run build`, review the output, and fix any build errors before reporting completion.
