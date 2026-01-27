@@ -441,6 +441,11 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+*.code-workspace
+
+# IDE configs
+.idea/
+*.iml
 
 # Local History for Visual Studio Code
 .history/
@@ -457,10 +462,21 @@ FodyWeavers.xsd
 
 # Build artifacts
 tsconfig.tsbuildinfo
+*.tsbuildinfo
 *.log
 !*.log.md
 /dist/
 /dist-ssr/
+
+# Netlify/Vercel local artifacts
+.netlify/
+.vercel/
+
+# Tool caches
+.vite/
+.cache/
+.eslintcache
+coverage/
 
 # VS Code workspace settings (optional - can be tracked if you want shared settings)
 .vs/

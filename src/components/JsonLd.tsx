@@ -34,7 +34,7 @@ export function generateArticleJsonLd(post: Post): string {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${post.slug}`
+      "@id": `${SITE_URL}/blog/${post.slug}/`
     }
   };
 
@@ -84,7 +84,7 @@ export function generateWebsiteJsonLd(): string {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     description:
       "Budget-friendly product recommendations and guides for Filipino buyers.",
     publisher: {
@@ -100,9 +100,9 @@ export function generateWebsiteJsonLd(): string {
 export default function JsonLd({ post }: JsonLdArticleProps) {
   const articleJsonLd = generateArticleJsonLd(post);
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: "Home", url: SITE_URL },
-    { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: post.title, url: `${SITE_URL}/blog/${post.slug}` }
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Blog", url: `${SITE_URL}/blog/` },
+    { name: post.title, url: `${SITE_URL}/blog/${post.slug}/` }
   ]);
 
   return (

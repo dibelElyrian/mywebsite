@@ -10,6 +10,8 @@ Guidelines:
 - Add or update sitemap.xml and robots.txt for static hosting.
 - Provide affiliate disclosure and disclaimer pages when applicable.
 - Avoid deceptive or policy-violating claims; do not imply personal testing.
+- Keep canonical URLs consistent with production redirects (trailing slash vs no slash).
+- Ensure non-existent pages return real 404s with `noindex,follow`.
 
 Current compliance status (January 2026):
 - Disclaimer page: /disclaimer (includes affiliate disclosure)
@@ -17,6 +19,11 @@ Current compliance status (January 2026):
 - ads.txt: /public/ads.txt (Google AdSense publisher ID)
 - robots.txt: Generated at build time via /scripts/generate-sitemap.mjs (Allow: /)
 - sitemap.xml: Generated at build time, submitted to Google Search Console
+
+Search Console lessons (January 2026):
+- Trailing slash canonicalization must match the live host to avoid "Page with redirect".
+- Query-parameter tag/category filters are not indexable; add real tag/category archive pages and include them in the sitemap.
+- Remove blanket SPA rewrites when prerendered HTML exists; serve a real `404.html` instead.
 
 AdSense compliance checklist:
 - Sufficient original content (25+ posts, 900-1500 words each)

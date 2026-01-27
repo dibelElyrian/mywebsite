@@ -28,7 +28,7 @@ const posts = fs
 
 const itemsXml = posts
   .map((post) => {
-    const url = `${baseUrl}/blog/${post.slug}`;
+    const url = `${baseUrl}/blog/${post.slug}/`;
     const pubDate = post.date ? new Date(post.date).toUTCString() : "";
     return `\n    <item>\n      <title><![CDATA[${post.title}]]></title>\n      <link>${url}</link>\n      <guid>${url}</guid>\n      <pubDate>${pubDate}</pubDate>\n      <description><![CDATA[${post.description}]]></description>\n    </item>`;
   })
@@ -37,7 +37,7 @@ const itemsXml = posts
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<rss version="2.0">\n  <channel>\n` +
   `    <title>SulitFinds</title>\n` +
-  `    <link>${baseUrl}</link>\n` +
+  `    <link>${baseUrl}/</link>\n` +
   `    <description>Budget-friendly product recommendations in the Philippines.</description>\n` +
   `    <language>en-PH</language>\n` +
   itemsXml +

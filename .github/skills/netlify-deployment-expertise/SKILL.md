@@ -10,3 +10,4 @@ Guidelines:
 - Add SPA redirects and caching headers as needed.
 - Ensure outputs are optimized for Netlify’s CDN.
 - Keep settings aligned for the domain sulitfinds.com.
+- If the site is prerendered, avoid blanket `/* -> /index.html` rewrites and ship a real `404.html`.

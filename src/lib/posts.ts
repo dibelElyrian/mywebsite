@@ -1,5 +1,6 @@
 import { getReadingTime } from "./readingTime";
 import { normalizeContent } from "./normalizeContent";
+import { slugifyLabel } from "./slug";
 
 const NON_PUBLISHABLE_SECTION_PATTERN = /^\s*#{1,6}\s+(Link Map|Affiliate Placeholder Replacement Report|Affiliate Link Audit|Related posts)(\b|\s|:|\()/i;
 
@@ -13,6 +14,12 @@ export type Post = {
   coverImage?: string;
   content: string;
   readingTime: string;
+};
+
+export type TaxonomySummary = {
+  name: string;
+  slug: string;
+  count: number;
 };
 
 const modules = import.meta.glob<string>("../../content/posts/*.md", {
@@ -142,6 +149,48 @@ export function getCategories(posts: Post[]) {
 
 export function getTags(posts: Post[]) {
   return Array.from(new Set(posts.flatMap((post) => post.tags))).sort();
+}
+
+export function getCategorySummaries(posts: Post[] = getAllPosts()): TaxonomySummary[] {
+  const counts = new Map<string, number>();
+  posts.forEach((post) => {
+    counts.set(post.category, (counts.get(post.category) ?? 0) + 1);
+  });
+
+  return Array.from(counts.entries())
+    .map(([name, count]) => ({
+      name,
+      slug: slugifyLabel(name),
+      count
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getTagSummaries(posts: Post[] = getAllPosts()): TaxonomySummary[] {
+  const counts = new Map<string, number>();
+  posts.forEach((post) => {
+    post.tags.forEach((tag) => {
+      counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    });
+  });
+
+  return Array.from(counts.entries())
+    .map(([name, count]) => ({
+      name,
+      slug: slugifyLabel(name),
+      count
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function findCategoryBySlug(slug: string, posts: Post[] = getAllPosts()) {
+  const target = slugifyLabel(slug);
+  return getCategorySummaries(posts).find((item) => item.slug === target) ?? null;
+}
+
+export function findTagBySlug(slug: string, posts: Post[] = getAllPosts()) {
+  const target = slugifyLabel(slug);
+  return getTagSummaries(posts).find((item) => item.slug === target) ?? null;
 }
 
 function scoreRelated(post: Post, candidate: Post) {

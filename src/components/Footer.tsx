@@ -8,11 +8,11 @@ export default function Footer() {
         <span>© 2026 SulitFinds. All rights reserved.</span>
         <span>
           Affiliate links may earn us a commission at no extra cost to you. View the{" "}
-          <Link to="/disclaimer" className="link">
+          <Link to="/disclaimer/" className="link">
             disclaimer
           </Link>
           {" "}and{" "}
-          <Link to="/privacy" className="link">
+          <Link to="/privacy/" className="link">
             privacy policy
           </Link>
           .

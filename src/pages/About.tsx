@@ -8,7 +8,7 @@ export default function About() {
       <SEO
         title="About"
         description="SulitFinds provides practical living guides for budget-conscious Filipinos. We answer real questions with helpful, reader-first content."
-        canonicalPath="/about"
+        canonicalPath="/about/"
       />
 
       <h1 className="text-3xl font-bold text-text">
@@ -49,8 +49,8 @@ export default function About() {
         </p>
         <p className="text-base text-muted">
           For full details, see our{" "}
-          <Link to="/disclaimer" className="link">Disclaimer</Link> and{" "}
-          <Link to="/privacy" className="link">Privacy Policy</Link>.
+          <Link to="/disclaimer/" className="link">Disclaimer</Link> and{" "}
+          <Link to="/privacy/" className="link">Privacy Policy</Link>.
         </p>
       </section>
 

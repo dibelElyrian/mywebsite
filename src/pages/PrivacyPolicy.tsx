@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
       <SEO
         title="Privacy Policy"
         description="Privacy policy for SulitFinds, covering data collection, cookies, and analytics."
-        canonicalPath="/privacy"
+        canonicalPath="/privacy/"
       />
 
       <h1>Privacy Policy</h1>
@@ -131,8 +131,8 @@ export default function PrivacyPolicy() {
       <h2>Contact Us</h2>
       <p>
         If you have questions about this Privacy Policy, please visit our{" "}
-        <Link to="/about">About page</Link> or{" "}
-        <Link to="/disclaimer">Disclaimer page</Link> for more information about
+        <Link to="/about/">About page</Link> or{" "}
+        <Link to="/disclaimer/">Disclaimer page</Link> for more information about
         SulitFinds.
       </p>
     </div>

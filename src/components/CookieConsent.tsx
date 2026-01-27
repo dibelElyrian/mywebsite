@@ -33,6 +33,10 @@ function enableAnalytics() {
     win.dataLayer?.push(arguments);
   }
   win.gtag = win.gtag || (gtag as GtagWindow["gtag"]);
+  win.gtag("consent", "update", {
+    analytics_storage: "granted",
+    ad_storage: "granted"
+  });
   win.gtag!("js", new Date());
   win.gtag!("config", GA_MEASUREMENT_ID);
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, GA_SCRIPT_ID);
@@ -74,18 +78,18 @@ export default function CookieConsent() {
     setShowBanner(false);
   }
 
-  function handleDecline() {
-    localStorage.setItem(CONSENT_KEY, "declined");
-    setShowBanner(false);
-    // Optionally disable Google Analytics
-    const win = window as GtagWindow;
-    if (win.gtag) {
-      win.gtag("consent", "update", {
-        analytics_storage: "denied",
-        ad_storage: "denied"
-      });
-    }
+function handleDecline() {
+  localStorage.setItem(CONSENT_KEY, "declined");
+  setShowBanner(false);
+  // Optionally disable Google Analytics
+  const win = window as GtagWindow;
+  if (win.gtag) {
+    win.gtag("consent", "update", {
+      analytics_storage: "denied",
+      ad_storage: "denied"
+    });
   }
+}
 
   if (!showBanner) {
     return null;
@@ -97,7 +101,7 @@ export default function CookieConsent() {
         <p className="text-sm text-muted">
           We use cookies and analytics to understand how visitors use our site
           and to improve your experience.{" "}
-          <Link to="/privacy" className="link">
+          <Link to="/privacy/" className="link">
             Learn more
           </Link>
         </p>

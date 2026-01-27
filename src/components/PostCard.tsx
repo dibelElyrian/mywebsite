@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import { Post } from "../lib/posts";
 import { formatDate } from "../lib/format";
+import { slugifyLabel } from "../lib/slug";
 
 type PostCardProps = {
   post: Post;
 };
 
 export default function PostCard({ post }: PostCardProps) {
+  const categorySlug = slugifyLabel(post.category);
+
   return (
     <article className="card">
       {post.coverImage ? (
-        <Link to={`/blog/${post.slug}`} className="mb-4 block overflow-hidden rounded-xl">
+        <Link to={`/blog/${post.slug}/`} className="mb-4 block overflow-hidden rounded-xl">
           <img
             src={post.coverImage}
             alt={post.title}
@@ -21,13 +24,13 @@ export default function PostCard({ post }: PostCardProps) {
       ) : null}
       <div className="mb-3 flex items-center gap-3 text-xs font-medium text-muted">
         <span>{formatDate(post.date)}</span>
-        <span className="chip">
+        <Link to={`/blog/category/${categorySlug}/`} className="chip">
           {post.category}
-        </span>
+        </Link>
         <span>{post.readingTime}</span>
       </div>
       <h3 className="text-xl font-semibold text-text">
-        <Link to={`/blog/${post.slug}`} className="link-muted">
+        <Link to={`/blog/${post.slug}/`} className="link-muted">
           {post.title}
         </Link>
       </h3>
@@ -47,7 +50,7 @@ export default function PostCard({ post }: PostCardProps) {
         </div>
       ) : null}
       <Link
-        to={`/blog/${post.slug}`}
+        to={`/blog/${post.slug}/`}
         className="mt-4 inline-flex text-sm font-semibold link"
       >
         Read more →

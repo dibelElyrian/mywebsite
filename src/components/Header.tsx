@@ -25,10 +25,10 @@ export default function Header() {
           </NavLink>
           <div className="flex w-full items-center justify-between gap-3 sm:w-auto">
             <nav className="flex flex-wrap items-center gap-2" aria-label="Primary">
-              <NavLink to="/blog" className={primaryLinkStyles}>
+              <NavLink to="/blog/" className={primaryLinkStyles}>
                 Blog
               </NavLink>
-              <NavLink to="/about" className={primaryLinkStyles}>
+              <NavLink to="/about/" className={primaryLinkStyles}>
                 About
               </NavLink>
             </nav>

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SEO from "../components/SEO";
@@ -9,20 +9,27 @@ import ProductRecommendation from "../components/ProductRecommendation";
 import AffiliateLink from "../components/AffiliateLink";
 import { formatDate } from "../lib/format";
 import { getPostBySlug, getRelatedPosts } from "../lib/posts";
+import { slugifyLabel } from "../lib/slug";
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const location = useLocation();
   const post = slug ? getPostBySlug(slug) : undefined;
 
   if (!post) {
     return (
       <div className="space-y-4">
-        <SEO title="Post not found" description="This post could not be found." />
+        <SEO
+          title="Post not found"
+          description="This post could not be found."
+          canonicalPath={location.pathname}
+          noindex
+        />
         <h1 className="text-3xl font-bold">Post not found</h1>
         <p className="text-muted">
           The post you are looking for does not exist or has been moved.
         </p>
-        <Link to="/blog" className="link">
+        <Link to="/blog/" className="link">
           Back to blog
         </Link>
       </div>
@@ -30,6 +37,7 @@ export default function BlogPost() {
   }
 
   const related = getRelatedPosts(post, 4);
+  const categorySlug = slugifyLabel(post.category);
   const ADS_ENABLED = false;
   const cleanedContent = stripEditorialSections(post.content);
   const contentBlocks = parseContentBlocks(cleanedContent);
@@ -40,7 +48,7 @@ export default function BlogPost() {
       <SEO
         title={post.title}
         description={post.description}
-        canonicalPath={`/blog/${post.slug}`}
+        canonicalPath={`/blog/${post.slug}/`}
         type="article"
         image={post.coverImage}
       />
@@ -48,7 +56,7 @@ export default function BlogPost() {
 
       <article className="mx-auto flex w-full max-w-[70ch] flex-col gap-10 pb-12 text-[1.05rem] leading-[1.75]">
         <header className="space-y-5">
-          <Link to="/blog" className="link">
+          <Link to="/blog/" className="link">
             ← Back to blog
           </Link>
           <h1 className="text-3xl font-bold text-text">
@@ -57,7 +65,7 @@ export default function BlogPost() {
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
             <span>{formatDate(post.date)}</span>
             <Link
-              to="/blog"
+              to={`/blog/category/${categorySlug}/`}
               className="chip"
             >
               {post.category}
@@ -80,7 +88,7 @@ export default function BlogPost() {
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
-                  to={`/blog?tag=${encodeURIComponent(tag)}`}
+                  to={`/blog/tag/${slugifyLabel(tag)}/`}
                   className="tag"
                 >
                   #{tag}
@@ -155,7 +163,7 @@ export default function BlogPost() {
         <p className="text-sm text-muted">
           Links may lead to Shopee or TikTok Shop listings. Always review seller ratings,
           product details, and return policies before buying. Purchases are your
-          responsibility. See <Link to="/disclaimer" className="link">Disclaimer</Link>.
+          responsibility. See <Link to="/disclaimer/" className="link">Disclaimer</Link>.
         </p>
       </article>
 

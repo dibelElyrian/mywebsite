@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
 import CategoryFilter from "../components/CategoryFilter";
 import PostCard from "../components/PostCard";
 import { getAllPosts, getCategories, getTags } from "../lib/posts";
+import { slugifyLabel } from "../lib/slug";
 
 const TAG_LIMIT = 12;
 
@@ -97,7 +98,7 @@ export default function BlogIndex() {
       <SEO
         title="Blog"
         description="Browse the latest SulitFinds posts, including practical guides, budget tips, and helpful answers."
-        canonicalPath="/blog"
+        canonicalPath="/blog/"
       />
 
       <header className="space-y-5">
@@ -175,6 +176,40 @@ export default function BlogIndex() {
           ) : null}
         </div>
       </header>
+
+      <section className="space-y-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+          Category pages
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <Link
+              key={category}
+              to={`/blog/category/${slugifyLabel(category)}/`}
+              className="chip"
+            >
+              {category}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+          Tag pages
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {visibleTags.map((tag) => (
+            <Link
+              key={tag}
+              to={`/blog/tag/${slugifyLabel(tag)}/`}
+              className="chip"
+            >
+              #{tag}
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className="grid gap-6 md:grid-cols-2">
         {filteredPosts.map((post) => (

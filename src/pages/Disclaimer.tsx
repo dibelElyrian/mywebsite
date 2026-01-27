@@ -7,7 +7,7 @@ export default function Disclaimer() {
       <SEO
         title="Disclaimer"
         description="Affiliate disclosure and content disclaimer for SulitFinds."
-        canonicalPath="/disclaimer"
+        canonicalPath="/disclaimer/"
       />
 
       <h1 className="text-3xl font-bold text-text">
@@ -84,7 +84,7 @@ export default function Disclaimer() {
 
       <p className="text-base text-muted">
         For privacy-related information, see our{" "}
-        <Link to="/privacy" className="link">Privacy Policy</Link>.
+        <Link to="/privacy/" className="link">Privacy Policy</Link>.
       </p>
     </div>
   );

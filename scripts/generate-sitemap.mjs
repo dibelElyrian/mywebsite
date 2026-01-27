@@ -11,6 +11,32 @@ const baseUrl = "https://sulitfinds.com";
 
 const today = new Date().toISOString().split("T")[0];
 
+function slugifyLabel(value) {
+  const slug = value
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+  return slug || "general";
+}
+
+function hasFileExtension(path) {
+  const lastSegment = path.split("/").filter(Boolean).pop() || "";
+  return lastSegment.includes(".");
+}
+
+function withTrailingSlash(path) {
+  if (path === "/" || hasFileExtension(path)) return path;
+  return path.endsWith("/") ? path : `${path}/`;
+}
+
+function maxDate(current, next) {
+  if (!current) return next;
+  return next > current ? next : current;
+}
+
 const staticRoutes = [
   { path: "/", lastmod: today },
   { path: "/blog", lastmod: today },
@@ -20,10 +46,13 @@ const staticRoutes = [
   { path: "/feed.xml", lastmod: today }
 ];
 
-const postRoutes = fs
-  .readdirSync(contentDir)
+const postRoutes = [];
+const categoryLastmod = new Map();
+const tagLastmod = new Map();
+
+fs.readdirSync(contentDir)
   .filter((file) => file.endsWith(".md"))
-  .map((file) => {
+  .forEach((file) => {
     const filePath = path.join(contentDir, file);
     const raw = fs.readFileSync(filePath, "utf8");
     const stats = fs.statSync(filePath);
@@ -31,10 +60,38 @@ const postRoutes = fs
     const fallbackSlug = file.replace(/\.md$/, "");
     const slug = data.slug || fallbackSlug;
     const lastmod = data.date || stats.mtime.toISOString().split("T")[0];
-    return { path: `/blog/${slug}`, lastmod };
+    postRoutes.push({ path: `/blog/${slug}`, lastmod });
+
+    const category = typeof data.category === "string" ? data.category : "General";
+    if (category) {
+      const current = categoryLastmod.get(category);
+      categoryLastmod.set(category, maxDate(current, lastmod));
+    }
+
+    if (Array.isArray(data.tags)) {
+      data.tags.forEach((tag) => {
+        const current = tagLastmod.get(tag);
+        tagLastmod.set(tag, maxDate(current, lastmod));
+      });
+    }
   });
 
-const allRoutes = [...staticRoutes, ...postRoutes];
+const categoryRoutes = Array.from(categoryLastmod.entries()).map(([category, lastmod]) => ({
+  path: `/blog/category/${slugifyLabel(category)}`,
+  lastmod
+}));
+
+const tagRoutes = Array.from(tagLastmod.entries()).map(([tag, lastmod]) => ({
+  path: `/blog/tag/${slugifyLabel(tag)}`,
+  lastmod
+}));
+
+const allRoutes = [...staticRoutes, ...postRoutes, ...categoryRoutes, ...tagRoutes].map(
+  (route) => ({
+  ...route,
+  path: withTrailingSlash(route.path)
+})
+);
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -5,6 +5,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import BlogIndex from "./pages/BlogIndex";
 import BlogPost from "./pages/BlogPost";
+import CategoryArchive from "./pages/CategoryArchive";
+import TagArchive from "./pages/TagArchive";
 import About from "./pages/About";
 import Disclaimer from "./pages/Disclaimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -23,6 +25,8 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="blog" element={<BlogIndex />} />
+          <Route path="blog/category/:categorySlug" element={<CategoryArchive />} />
+          <Route path="blog/tag/:tagSlug" element={<TagArchive />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="about" element={<About />} />
           <Route path="disclaimer" element={<Disclaimer />} />

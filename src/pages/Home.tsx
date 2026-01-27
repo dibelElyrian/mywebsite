@@ -3,6 +3,7 @@ import SEO from "../components/SEO";
 import { generateWebsiteJsonLd } from "../components/JsonLd";
 import PostCard from "../components/PostCard";
 import { getAllPosts, getCategories } from "../lib/posts";
+import { slugifyLabel } from "../lib/slug";
 
 export default function Home() {
   const posts = getAllPosts();
@@ -16,7 +17,8 @@ export default function Home() {
         title="Practical guides for budget-conscious Filipinos"
         description="SulitFinds answers trending Filipino questions with practical living guides, budget tips, and smart recommendations."
         canonicalPath="/"
-      />      <script
+      />
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateWebsiteJsonLd() }}
       />
@@ -32,13 +34,13 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              to="/blog"
+              to="/blog/"
               className="btn-primary px-6 py-3"
             >
               Browse the blog
             </Link>
             <Link
-              to="/about"
+              to="/about/"
               className="btn-secondary px-6 py-3"
             >
               Learn about SulitFinds
@@ -50,7 +52,7 @@ export default function Home() {
       <section className="space-y-6">
         <div className="flex items-center justify-between">
           <h2 className="section-title">Featured guides</h2>
-          <Link to="/blog" className="link">
+          <Link to="/blog/" className="link">
             View all
           </Link>
         </div>
@@ -67,7 +69,7 @@ export default function Home() {
           {categories.map((category) => (
             <Link
               key={category}
-              to={`/blog?category=${encodeURIComponent(category)}`}
+              to={`/blog/category/${slugifyLabel(category)}/`}
               className="chip"
             >
               {category}
