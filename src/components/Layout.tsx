@@ -6,8 +6,11 @@ import CookieConsent from "./CookieConsent";
 export default function Layout() {
   return (
     <div className="min-h-screen bg-bg text-text">
+      <a href="#main-content" className="skip-link sr-only sr-only-focusable">
+        Skip to content
+      </a>
       <Header />
-      <main className="mx-auto w-full max-w-5xl px-6 pb-16 pt-10">
+      <main id="main-content" className="mx-auto w-full max-w-5xl px-6 pb-16 pt-10">
         <Outlet />
       </main>
       <Footer />

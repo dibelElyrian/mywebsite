@@ -149,6 +149,48 @@ body {
     text-decoration-color: var(--color-accent-2);
   }
 
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .sr-only-focusable:focus,
+  .sr-only-focusable:active {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+  }
+
+  .skip-link {
+    @apply inline-block rounded px-3 py-2 text-sm font-semibold bg-surface text-text border-2;
+    border-color: var(--color-border);
+    box-shadow: 2px 2px 0 var(--color-border);
+    transform: translateY(-8px);
+  }
+
+  a:focus,
+  button:focus,
+  .link:focus,
+  .nav-link:focus,
+  .btn:focus,
+  .chip:focus,
+  .tag:focus,
+  .input:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
   .chip {
     @apply inline-flex items-center rounded-full border-2 px-3 py-1 text-xs font-semibold;
     background-color: color-mix(in srgb, var(--color-surface) 80%, var(--color-accent) 20%);
